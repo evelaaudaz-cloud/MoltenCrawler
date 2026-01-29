@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://3gogei6v6k7k"]
+
+[ext_resource type="Texture2D" uid="uid://bk6a0e7d8cv8n" path="res://armario.png" id="1_km4he"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1gfvm"]
+
+[node name="Armario" type="Area2D" groups=["interactuables"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1)
+scale = Vector2(5.5, 5.5)
+shape = SubResource("RectangleShape2D_1gfvm")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_km4he")

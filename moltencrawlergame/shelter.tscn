@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=4 uid="uid://bvm0xy4unn6fm"]
+
+[ext_resource type="Texture2D" uid="uid://dprsu062gprcb" path="res://tileset_boceto.png" id="1_0e48y"]
+[ext_resource type="PackedScene" uid="uid://c4l7pypp1hq50" path="res://molten.tscn" id="2_epypp"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0hol4"]
+texture = ExtResource("1_0e48y")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+1:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_q6r6c"]
+tile_size = Vector2i(128, 128)
+physics_layer_0/collision_layer = 1
+sources/1 = SubResource("TileSetAtlasSource_0hol4")
+
+[node name="Node2D" type="Node2D"]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAAAAAAAAQABAAAAAAAAAAEAAQABAAAAAAAAAP//AQABAAAAAAD//wAAAQABAAAAAAABAAAAAQABAAAAAAAAAP7/AQABAAAAAAD+/wAAAQABAAAAAAACAAAAAQABAAAAAAAAAAIAAQABAAAAAAD/////AQABAAAAAAABAP//AQABAAAAAAD//wEAAQABAAAAAAABAAEAAQABAAAAAAABAAIAAQABAAAAAAACAAIAAQABAAAAAAACAAEAAQABAAAAAAD//wIAAQABAAAAAAD+/wIAAQABAAAAAAD+/wEAAQABAAAAAAD+////AQABAAAAAAD///7/AQABAAAAAAD+//7/AQABAAAAAAABAP7/AQABAAAAAAACAP7/AQABAAAAAAACAP//AQABAAAAAAADAP7/AQAAAAAAAAADAP//AQAAAAAAAAADAAAAAQAAAAAAAAADAAEAAQAAAAAAAAADAAIAAQAAAAAAAAACAAMAAQAAAAAAAAABAAMAAQAAAAAAAAAAAAMAAQAAAAAAAAD//wMAAQAAAAAAAAD+/wMAAQAAAAAAAAD9/wIAAQAAAAAAAAD9/wEAAQAAAAAAAAD9/wAAAQAAAAAAAAD9////AQAAAAAAAAD9//7/AQAAAAAAAAD+//3/AQAAAAAAAAD///3/AQAAAAAAAAAAAP3/AQAAAAAAAAABAP3/AQAAAAAAAAACAP3/AQAAAAAAAAA=")
+tile_set = SubResource("TileSet_q6r6c")
+
+[node name="Molten" parent="." instance=ExtResource("2_epypp")]
+position = Vector2(60, 76)
