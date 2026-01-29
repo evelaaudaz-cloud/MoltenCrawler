@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://c4l7pypp1hq50"]
+
+[ext_resource type="Script" uid="uid://tkkmxrkdcqya" path="res://character_body_2d.gd" id="1_gm3hj"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2bs05"]
+radius = 10.4403
+
+[node name="Molten" type="CharacterBody2D"]
+position = Vector2(160, 91)
+script = ExtResource("1_gm3hj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_2bs05")
+
+[node name="Camera2D" type="Camera2D" parent="."]
