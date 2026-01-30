@@ -1,10 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://bgjyeg2ctrmf3"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n2snw"]
-bg_color = Color(0.997172, 0.301477, 0.521517, 1)
+bg_color = Color(0.996078, 0.301961, 0.521569, 0)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_37p78"]
-bg_color = Color(0.242415, 0.694331, 0.503669, 1)
+bg_color = Color(0.996078, 0.301961, 0.521569, 1)
 
 [node name="HUD" type="CanvasLayer"]
 

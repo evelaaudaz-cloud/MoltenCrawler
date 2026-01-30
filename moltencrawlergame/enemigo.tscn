@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=3 uid="uid://bkd5b1xtheqdn"]
+
+[ext_resource type="Script" uid="uid://djf356o2m7oyf" path="res://enemigo.gd" id="1_a5tj2"]
+[ext_resource type="Texture2D" uid="uid://dceiih72rta85" path="res://fleshbag.png" id="2_moxti"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bnx68"]
+radius = 31.4006
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_j8qs0"]
+radius = 158.937
+
+[sub_resource type="Gradient" id="Gradient_2bs05"]
+offsets = PackedFloat32Array(0.117409, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_a5tj2"]
+gradient = SubResource("Gradient_2bs05")
+width = 150
+fill = 1
+fill_from = Vector2(0.514188, 0.547009)
+fill_to = Vector2(0.340969, 0.15812)
+
+[node name="Enemigo" type="CharacterBody2D"]
+script = ExtResource("1_a5tj2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_moxti")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_bnx68")
+
+[node name="ZonaAtaque" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ZonaAtaque"]
+shape = SubResource("CircleShape2D_j8qs0")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(-17, -23)
+scale = Vector2(4.42583, 9.80578)
+color = Color(0.917647, 0.247059, 0.180392, 1)
+texture = SubResource("GradientTexture2D_a5tj2")
+
+[connection signal="body_entered" from="ZonaAtaque" to="." method="_on_zona_ataque_body_entered"]
