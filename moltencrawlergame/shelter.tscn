@@ -1,8 +1,10 @@
-[gd_scene load_steps=7 format=4 uid="uid://bvm0xy4unn6fm"]
+[gd_scene load_steps=9 format=4 uid="uid://bvm0xy4unn6fm"]
 
+[ext_resource type="Script" uid="uid://bte05mpmipyvc" path="res://shelter.gd" id="1_r80qo"]
 [ext_resource type="Texture2D" uid="uid://dprsu062gprcb" path="res://tileset_boceto.png" id="1_tq00t"]
 [ext_resource type="PackedScene" uid="uid://c4l7pypp1hq50" path="res://molten.tscn" id="2_lirj0"]
 [ext_resource type="PackedScene" uid="uid://c40oi7jumwx2k" path="res://Escotilla.tscn" id="3_lirj0"]
+[ext_resource type="PackedScene" uid="uid://bgjyeg2ctrmf3" path="res://hud.tscn" id="4_ciohy"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_tq00t"]
 vertices = PackedVector2Array(-2178, 2025.06, -2192.48, 2025.62, -2198.21, 1906, -2178, 1906, -1280.54, 1990.4, -1390, 1994.62, -1390, 1906, -1285.14, 1906, -1410, -1934, -1410, -1186, -1666, -1186, -1898.62, -1934, -622, -142, -622, -654, 638, -654, 638, 606, -622, 606, -622, 94, -1666, -142, -1666, 94, -1666, 1138, -1410, 1138, -1410, 1886, -2158, 1886, -2158, 1138, -1902, 1138, -1902, -1186, -2158, -1928.21, -2158, -1186, -2178, 1118, -2235.88, 1118, -2237.68, 1080.3, -2178, 1053.33, -1329.64, 1088.79, -1328.06, 1118, -1390, 1118, -1390, 1063.44, -642, 665.469, -655.281, 665.82, -671.109, 626, -642, 626, 743.609, 630.25, 658, 632.422, 658, 626, 743.453, 626, -642, -800.922, -642, -674, -680.141, -674, -653.93, -801.547, 690.359, -730.477, 692.578, -674, 658, -674, 658, -732.188)
@@ -22,6 +24,7 @@ physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_0hol4")
 
 [node name="Node2D" type="Node2D"]
+script = ExtResource("1_r80qo")
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 position = Vector2(60, 76)
@@ -39,6 +42,8 @@ color = Color(0.0643933, 0.000962321, 0.0372444, 1)
 
 [node name="Molten" parent="." instance=ExtResource("2_lirj0")]
 position = Vector2(54, 71)
+
+[node name="HUD" parent="Molten" instance=ExtResource("4_ciohy")]
 
 [node name="Escotilla" parent="." instance=ExtResource("3_lirj0")]
 position = Vector2(-832, -801)

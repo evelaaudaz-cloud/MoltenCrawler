@@ -7,6 +7,30 @@ extends CharacterBody2D
 
 var esta_caminando = false
 
+@export var salud_maxima = 100
+var salud_actual = 100
+
+# Señal para avisar a la interfaz cuando nos golpean
+signal salud_cambiada(nueva_salud)
+
+func recibir_daño(cantidad):
+	salud_actual -= cantidad
+	salud_actual = clamp(salud_actual, 0, salud_maxima) # Evita que baje de 0
+	
+	emit_signal("salud_cambiada", salud_actual)
+	
+	# Efecto visual de golpe: Molten se pone rojo un segundo
+	modulate = Color.RED
+	await get_tree().create_timer(0.1).timeout
+	modulate = Color.WHITE
+	
+	if salud_actual <= 0:
+		morir()
+
+func morir():
+	print("Molten se ha derretido...")
+	get_tree().reload_current_scene() # Por ahora, reinicia el nivel
+	
 func _unhandled_input(event):
 	# Bloqueo: Si ya está caminando, ignoramos cualquier clic nuevo
 	if esta_caminando:

@@ -9,6 +9,7 @@ border_width_bottom = 2
 border_color = Color(0.905882, 0.227451, 0.666667, 0.27451)
 
 [node name="Slot" type="PanelContainer"]
+custom_minimum_size = Vector2(64, 64)
 offset_right = 40.0
 offset_bottom = 40.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_f3jfm")

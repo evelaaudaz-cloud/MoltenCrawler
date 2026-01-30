@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://iip6qplgfavr"]
+
+[ext_resource type="Script" uid="uid://c4ts2kq3d5l7v" path="res://comida.gd" id="1_7ydfo"]
+[ext_resource type="Texture2D" uid="uid://jly7on47db78" path="res://comida.png" id="2_2d4q8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_m5kyv"]
+radius = 118.127
+
+[node name="Comida" type="Area2D"]
+position = Vector2(7, -1)
+script = ExtResource("1_7ydfo")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(16, 16)
+offset_right = 266.0
+offset_bottom = 256.0
+texture = ExtResource("2_2d4q8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(136, 123)
+shape = SubResource("CircleShape2D_m5kyv")
