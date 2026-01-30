@@ -1,10 +1,15 @@
-[gd_scene load_steps=5 format=4 uid="uid://bvm0xy4unn6fm"]
+[gd_scene load_steps=6 format=4 uid="uid://bvm0xy4unn6fm"]
 
-[ext_resource type="Texture2D" uid="uid://dprsu062gprcb" path="res://tileset_boceto.png" id="1_0e48y"]
-[ext_resource type="PackedScene" uid="uid://c4l7pypp1hq50" path="res://molten.tscn" id="2_epypp"]
+[ext_resource type="Texture2D" uid="uid://dprsu062gprcb" path="res://tileset_boceto.png" id="1_tq00t"]
+[ext_resource type="PackedScene" uid="uid://c4l7pypp1hq50" path="res://molten.tscn" id="2_lirj0"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_tq00t"]
+vertices = PackedVector2Array(689.828, 667.867, 658, 667.5, 658, 626, 689.156, 626, -642, 652.461, -671.82, 652.109, -671.359, 626, -642, 626, 638, 606, -622, 606, -622, -654, 638, -654, -642, -687.898, -642, -674, -648.422, -674, -648.172, -687.93, 668.148, -680.047, 668.258, -674, 658, -674, 658, -680.109)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7), PackedInt32Array(8, 9, 10, 11), PackedInt32Array(12, 13, 14, 15), PackedInt32Array(16, 17, 18, 19)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-658, -698, 678, -690, 700, 678, -682, 662)])
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0hol4"]
-texture = ExtResource("1_0e48y")
+texture = ExtResource("1_tq00t")
 texture_region_size = Vector2i(128, 128)
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
@@ -17,9 +22,19 @@ sources/1 = SubResource("TileSetAtlasSource_0hol4")
 
 [node name="Node2D" type="Node2D"]
 
-[node name="TileMapLayer" type="TileMapLayer" parent="."]
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+position = Vector2(60, 76)
+scale = Vector2(0.5, 0.5)
+navigation_polygon = SubResource("NavigationPolygon_tq00t")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="NavigationRegion2D"]
+position = Vector2(-120, -152)
+scale = Vector2(2, 2)
 tile_map_data = PackedByteArray("AAAAAAAAAQABAAAAAAAAAAEAAQABAAAAAAAAAP//AQABAAAAAAD//wAAAQABAAAAAAABAAAAAQABAAAAAAAAAP7/AQABAAAAAAD+/wAAAQABAAAAAAACAAAAAQABAAAAAAAAAAIAAQABAAAAAAD/////AQABAAAAAAABAP//AQABAAAAAAD//wEAAQABAAAAAAABAAEAAQABAAAAAAABAAIAAQABAAAAAAACAAIAAQABAAAAAAACAAEAAQABAAAAAAD//wIAAQABAAAAAAD+/wIAAQABAAAAAAD+/wEAAQABAAAAAAD+////AQABAAAAAAD///7/AQABAAAAAAD+//7/AQABAAAAAAABAP7/AQABAAAAAAACAP7/AQABAAAAAAACAP//AQABAAAAAAADAP7/AQAAAAAAAAADAP//AQAAAAAAAAADAAAAAQAAAAAAAAADAAEAAQAAAAAAAAADAAIAAQAAAAAAAAACAAMAAQAAAAAAAAABAAMAAQAAAAAAAAAAAAMAAQAAAAAAAAD//wMAAQAAAAAAAAD+/wMAAQAAAAAAAAD9/wIAAQAAAAAAAAD9/wEAAQAAAAAAAAD9/wAAAQAAAAAAAAD9////AQAAAAAAAAD9//7/AQAAAAAAAAD+//3/AQAAAAAAAAD///3/AQAAAAAAAAAAAP3/AQAAAAAAAAABAP3/AQAAAAAAAAACAP3/AQAAAAAAAAA=")
 tile_set = SubResource("TileSet_q6r6c")
 
-[node name="Molten" parent="." instance=ExtResource("2_epypp")]
-position = Vector2(60, 76)
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0, 0, 0, 1)
+
+[node name="Molten" parent="." instance=ExtResource("2_lirj0")]
+position = Vector2(54, 71)
