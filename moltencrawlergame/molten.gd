@@ -19,24 +19,25 @@ func _unhandled_input(event):
 		anim_player.play("walk")
 
 func _physics_process(_delta):
-	# Si el agente dice que terminamos el camino
+	# Si ya llegamos, nos quedamos quietos
 	if nav_agent.is_navigation_finished():
 		if esta_caminando:
 			esta_caminando = false
 			anim_player.play("idle")
 		return
 
+	# Obtenemos el siguiente punto del camino
 	var next_path_pos = nav_agent.get_next_path_position()
-	var current_pos = global_position
 	
-	# Calculamos la dirección para movernos y para voltear el sprite
-	var direction = (next_path_pos - current_pos).normalized()
-	
-	# Voltear el sprite según la dirección X
-	if direction.x < 0:
+	# --- EL ARREGLO PARA VOLTEAR ---
+	# Comparamos la X del destino con la X actual de Molten
+	if next_path_pos.x < global_position.x - 2: # El -2 es para evitar que "tiemble" por errores de precisión
 		sprite.flip_h = true  # Izquierda
-	elif direction.x > 0:
+	elif next_path_pos.x > global_position.x + 2:
 		sprite.flip_h = false # Derecha
-	
+	# -------------------------------
+
+	# Movimiento normal
+	var direction = global_position.direction_to(next_path_pos)
 	velocity = direction * speed
 	move_and_slide()

@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://caewqjhf70cog"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f3jfm"]
+bg_color = Color(0.184314, 0.466667, 0.513726, 0.239216)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.905882, 0.227451, 0.666667, 0.27451)
+
+[node name="Slot" type="PanelContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_f3jfm")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 2
