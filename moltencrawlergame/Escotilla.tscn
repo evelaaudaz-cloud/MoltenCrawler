@@ -1,11 +1,14 @@
-[gd_scene load_steps=8 format=3 uid="uid://c40oi7jumwx2k"]
+[gd_scene load_steps=9 format=3 uid="uid://c40oi7jumwx2k"]
 
 [ext_resource type="Script" uid="uid://b8nlvfmj67sju" path="res://escotilla.gd" id="1_d15xj"]
 [ext_resource type="Texture2D" uid="uid://bco36oja3qmhr" path="res://escotilla.png" id="1_tg4nt"]
-[ext_resource type="FontFile" uid="uid://bfooo6xmi3spx" path="res://Bitcount_Single/static/BitcountSingle-ExtraLight.ttf" id="3_mi6tt"]
+[ext_resource type="FontFile" uid="uid://ccbexmso4j8pq" path="res://Bitcount_Single/static/BitcountSingle-SemiBold.ttf" id="3_mi6tt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d15xj"]
 size = Vector2(56, 54)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_mi6tt"]
+light_mode = 1
 
 [sub_resource type="Animation" id="Animation_mi6tt"]
 length = 0.001
@@ -55,14 +58,21 @@ texture = ExtResource("1_tg4nt")
 shape = SubResource("RectangleShape2D_d15xj")
 
 [node name="Label" type="Label" parent="."]
-z_index = 20
-offset_left = -127.0
-offset_top = -56.0
-offset_right = 130.0
-offset_bottom = -33.0
-theme_override_colors/font_color = Color(0.894118, 0.278431, 0.654902, 1)
-theme_override_colors/font_shadow_color = Color(0, 0.741176, 0.686275, 1)
+visible = false
+light_mask = 16
+visibility_layer = 16
+z_index = 100
+z_as_relative = false
+material = SubResource("CanvasItemMaterial_mi6tt")
+offset_left = -165.0
+offset_top = -60.0
+offset_right = 171.0
+offset_bottom = -35.0
+theme_override_colors/font_color = Color(0, 0.872428, 0.0415192, 1)
+theme_override_colors/font_shadow_color = Color(1, 0.250907, 0.122018, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("3_mi6tt")
+theme_override_font_sizes/font_size = 20
 text = "CUIDADO: ACCESO A LA CALDERA"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
