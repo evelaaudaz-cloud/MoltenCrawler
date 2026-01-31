@@ -6,8 +6,8 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_bnx68"]
 radius = 31.4006
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_j8qs0"]
-radius = 158.937
+[sub_resource type="CircleShape2D" id="CircleShape2D_a5tj2"]
+radius = 54.0093
 
 [sub_resource type="Gradient" id="Gradient_2bs05"]
 offsets = PackedFloat32Array(0.117409, 1)
@@ -24,6 +24,8 @@ fill_to = Vector2(0.340969, 0.15812)
 script = ExtResource("1_a5tj2")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1, 1)
+scale = Vector2(0.564453, 0.527344)
 texture = ExtResource("2_moxti")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -32,7 +34,7 @@ shape = SubResource("CircleShape2D_bnx68")
 [node name="ZonaAtaque" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ZonaAtaque"]
-shape = SubResource("CircleShape2D_j8qs0")
+shape = SubResource("CircleShape2D_a5tj2")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 position = Vector2(-17, -23)

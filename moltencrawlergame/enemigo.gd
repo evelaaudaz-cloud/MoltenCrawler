@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var velocidad = 150.0
+@export var velocidad = 200.0
 @export var daño = 20
 var objetivo = null
 
@@ -17,7 +17,6 @@ func _physics_process(_delta):
 		velocity = direccion * velocidad
 		
 		# Efecto Technicolor: El engranaje rota constantemente
-		$Sprite2D.rotation += 0.1
 		
 		move_and_slide()
 
