@@ -22,6 +22,10 @@ window/size/viewport_height=720
 window/size/initial_position_type=0
 window/stretch/mode="canvas_items"
 
+[global_group]
+
+jugador=""
+
 [input]
 
 ui_left={

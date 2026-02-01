@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://bvm0xy4unn6fm"]
+[gd_scene load_steps=12 format=4 uid="uid://bvm0xy4unn6fm"]
 
 [ext_resource type="Script" uid="uid://bte05mpmipyvc" path="res://shelter.gd" id="1_r80qo"]
 [ext_resource type="Texture2D" uid="uid://dprsu062gprcb" path="res://tileset_boceto.png" id="1_tq00t"]
@@ -7,11 +7,13 @@
 [ext_resource type="PackedScene" uid="uid://bgjyeg2ctrmf3" path="res://hud.tscn" id="4_ciohy"]
 [ext_resource type="PackedScene" uid="uid://bkd5b1xtheqdn" path="res://enemigo.tscn" id="6_ciohy"]
 [ext_resource type="PackedScene" uid="uid://iip6qplgfavr" path="res://comida.tscn" id="7_15sx8"]
+[ext_resource type="PackedScene" uid="uid://b61d74wsn1x5d" path="res://linterna.tscn" id="8_mkd65"]
 
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_tq00t"]
-vertices = PackedVector2Array(-1390, 1944.22, -1390, 1906, -1370.77, 1906, -2178, 1915.75, -2186.77, 1906, -2178, 1906, -386, 1074.22, -386, 1118, -1390, 1118, -1390, 1029.65, -386, 1003.05, -488.078, 882, -386, 882, -642, 699.461, -650.141, 689.797, -697.156, 626, -642, 626, -1390, 374.492, -1390, 370, -1319.33, 370, -898, -466.531, -898, -418, -1390, -418, -1390, -492.797, 914, -418, 914, -500.18, 917.43, -478, 1150, -418, 1150, -478, -642, -674, -740.313, -674, -642, -690.25, 883.063, -674, 658, -674, 658, -711.219, 1150, -689.711, 1131.1, -1166, 1150, -1166, 562.867, -930, -608.211, -930, -616.32, -982, 548.406, -982, -2178, 1118, -2263.15, 1118, -2178, 1047.19, 695.109, 686.773, 658, 690.219, 658, 626, 703.047, 626, -2178, -1954, -2214.16, -1954, -2178, -1994.41, -1344.05, -1954, -1390, -1954, -1390, -2062, -1375.5, -2062, 1406, -2533.44, 1406, -2466, 1356.15, -2466, 1364.77, -2535.53, 2529.71, -2476.5, 2529.42, -2466, 2450, -2466, 2450, -2480.53, -130, -3575.97, -130, -3490, -194.148, -3490, -188.648, -3584.52, 190.227, -3529.31, 191.32, -3490, 146, -3490, 146, -3535.75, 126, 606, 126, 1630, -110, 1394, -110, 606, -1410, 1630, -1410, 1394, 1662, -1442, 1662, 89.4063, 1631.81, 94, 1426, -142, 1426, -1442, 638, 94, 638, -142, -1438.23, -1193.76, -1438.05, -1186, -1666, -1186, 1426, -1678, 1426, -2446, 2430, -2446, 2430, -1442, 126, -1678, -1410, -1442, -110, -1678, -622, -142, -622, -654, 638, -654, -622, 94, 638, 606, -622, 606, -1666, -142, -1666, 94, -1666, 1138, -1410, 1138, -1410, 1886, -2158, 1886, -2158, 1138, -1902, 1138, -1902, -1186, -2158, -1186, -2158, -1934, -1410, -1934, -1410, -1678, -110, -3470, 126, -3470, -1410, -1194.42)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2), PackedInt32Array(3, 4, 5), PackedInt32Array(6, 7, 8, 9), PackedInt32Array(10, 11, 12), PackedInt32Array(13, 14, 15, 16), PackedInt32Array(17, 18, 19), PackedInt32Array(20, 21, 22, 23), PackedInt32Array(24, 25, 26), PackedInt32Array(27, 24, 26, 28), PackedInt32Array(29, 30, 31), PackedInt32Array(32, 33, 34), PackedInt32Array(35, 36, 37), PackedInt32Array(38, 39, 40, 41), PackedInt32Array(42, 43, 44), PackedInt32Array(45, 46, 47, 48), PackedInt32Array(49, 50, 51), PackedInt32Array(52, 53, 54, 55), PackedInt32Array(56, 57, 58, 59), PackedInt32Array(60, 61, 62, 63), PackedInt32Array(64, 65, 66, 67), PackedInt32Array(68, 69, 70, 71), PackedInt32Array(72, 73, 74, 75), PackedInt32Array(74, 73, 76, 77), PackedInt32Array(78, 79, 80, 81, 82), PackedInt32Array(81, 80, 83, 84), PackedInt32Array(85, 86, 87), PackedInt32Array(88, 89, 90, 91, 78), PackedInt32Array(88, 78, 82, 92), PackedInt32Array(92, 82, 93, 94), PackedInt32Array(95, 96, 97, 84), PackedInt32Array(95, 84, 83, 72, 75, 98), PackedInt32Array(83, 99, 72), PackedInt32Array(75, 100, 98), PackedInt32Array(101, 95, 98, 102), PackedInt32Array(103, 104, 77), PackedInt32Array(76, 105, 106, 107, 108), PackedInt32Array(77, 76, 108, 103), PackedInt32Array(102, 103, 108, 109), PackedInt32Array(101, 102, 109), PackedInt32Array(87, 101, 109), PackedInt32Array(109, 110, 111, 112, 113), PackedInt32Array(85, 87, 109, 113, 93), PackedInt32Array(94, 114, 115, 92), PackedInt32Array(113, 94, 93), PackedInt32Array(85, 93, 116)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-198, -3596, 200, -3538, 246, -1880, 1266, -1820, 1356, -2546, 2540, -2486, 2510, -1436, 1814, -1376, 1830, 74, 764, 236, 704, 696, 230, 740, 246, 1672, -1264, 1716, -1428, 2042, -2078, 2042, -2344, 1746, -2286, 1124, -2108, 976, -2078, -1066, -2344, -1318, -2360, -1806, -2122, -2072, -1368, -2072, -1308, -1866, -302, -1806), PackedVector2Array(-1428, -1184, -1412, -504, -850, -474, -850, -666, -584, -710, -628, -992, 556, -992, 630, -726, 896, -682, 926, -488, 1148, -488, 1118, -1244), PackedVector2Array(-1382, 384, -1382, 1020, -346, 1066, -658, 696, -910, 354)])
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_d21ai"]
+vertices = PackedVector2Array(64, 64, -64, 64, -64, -64, 64, -64)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)])
+agent_radius = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0hol4"]
 texture = ExtResource("1_tq00t")
@@ -19,10 +21,12 @@ texture_region_size = Vector2i(128, 128)
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
 1:0/0 = 0
+1:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_d21ai")
 
 [sub_resource type="TileSet" id="TileSet_q6r6c"]
 tile_size = Vector2i(128, 128)
 physics_layer_0/collision_layer = 1
+navigation_layer_0/layers = 1
 sources/1 = SubResource("TileSetAtlasSource_0hol4")
 
 [node name="Node2D" type="Node2D"]
@@ -31,9 +35,8 @@ script = ExtResource("1_r80qo")
 [node name="HUD" parent="." instance=ExtResource("4_ciohy")]
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
-position = Vector2(60, 76)
+position = Vector2(52, 68)
 scale = Vector2(0.5, 0.5)
-navigation_polygon = SubResource("NavigationPolygon_tq00t")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="NavigationRegion2D"]
 position = Vector2(-120, -152)
@@ -42,6 +45,7 @@ tile_map_data = PackedByteArray("AAAAAAAAAQABAAAAAAAAAAEAAQABAAAAAAAAAP//AQABAAA
 tile_set = SubResource("TileSet_q6r6c")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
 color = Color(0.0643933, 0.000962321, 0.0372444, 1)
 
 [node name="Molten" parent="." instance=ExtResource("2_lirj0")]
@@ -56,3 +60,6 @@ position = Vector2(-796, 955)
 [node name="Comida" parent="." instance=ExtResource("7_15sx8")]
 position = Vector2(931, -794)
 scale = Vector2(0.25, 0.25)
+
+[node name="Linterna" parent="." instance=ExtResource("8_mkd65")]
+position = Vector2(285, -721)

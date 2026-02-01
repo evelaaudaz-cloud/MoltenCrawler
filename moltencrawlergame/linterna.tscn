@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://b61d74wsn1x5d"]
+
+[ext_resource type="Script" uid="uid://be77xomcqownj" path="res://linterna.gd" id="1_liq3v"]
+[ext_resource type="Texture2D" uid="uid://c7lbb7pfw3q1v" path="res://lamp.png" id="2_4rt6l"]
+
+[sub_resource type="Gradient" id="Gradient_2bs05"]
+offsets = PackedFloat32Array(0.117409, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_bb2px"]
+gradient = SubResource("Gradient_2bs05")
+width = 150
+fill = 1
+fill_from = Vector2(0.514188, 0.547009)
+fill_to = Vector2(0.340969, 0.15812)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_oshji"]
+radius = 256.008
+
+[node name="Linterna" type="StaticBody2D"]
+script = ExtResource("1_liq3v")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_4rt6l")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(-1, 3)
+scale = Vector2(4.42583, 9.80578)
+color = Color(0.917647, 0.247059, 0.180392, 1)
+texture = SubResource("GradientTexture2D_bb2px")
+
+[node name="ZonaSegura" type="Area2D" parent="."]
+disable_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ZonaSegura"]
+shape = SubResource("CircleShape2D_oshji")
+
+[connection signal="body_entered" from="ZonaSegura" to="." method="_on_zona_segura_body_entered"]
+[connection signal="body_exited" from="ZonaSegura" to="." method="_on_zona_segura_body_exited"]
