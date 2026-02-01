@@ -92,8 +92,8 @@ frame = 1
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
-position = Vector2(-14.0001, -16)
-scale = Vector2(9.69, 20.4731)
+position = Vector2(-20, -20)
+scale = Vector2(5.8, 12)
 color = Color(0.445593, 1, 0.764103, 1)
 texture = SubResource("GradientTexture2D_f1ewt")
 
