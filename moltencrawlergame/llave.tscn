@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://b57yfvi131kc2"]
+
+[ext_resource type="Script" uid="uid://d0c1fquugxsp" path="res://llave.gd" id="1_cr5s1"]
+[ext_resource type="Texture2D" uid="uid://dmpdyf53x3r3g" path="res://log.png" id="2_wwaip"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_f8d0f"]
+radius = 52.4023
+
+[node name="Llave" type="Area2D"]
+script = ExtResource("1_cr5s1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_f8d0f")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_wwaip")

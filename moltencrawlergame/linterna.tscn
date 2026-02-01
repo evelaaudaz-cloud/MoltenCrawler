@@ -3,12 +3,12 @@
 [ext_resource type="Script" uid="uid://be77xomcqownj" path="res://linterna.gd" id="1_liq3v"]
 [ext_resource type="Texture2D" uid="uid://c7lbb7pfw3q1v" path="res://lamp.png" id="2_4rt6l"]
 
-[sub_resource type="Gradient" id="Gradient_2bs05"]
+[sub_resource type="Gradient" id="Gradient_liq3v"]
 offsets = PackedFloat32Array(0.117409, 1)
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_bb2px"]
-gradient = SubResource("Gradient_2bs05")
+gradient = SubResource("Gradient_liq3v")
 width = 150
 fill = 1
 fill_from = Vector2(0.514188, 0.547009)

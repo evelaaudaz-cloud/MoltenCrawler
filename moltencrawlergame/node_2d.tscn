@@ -61,6 +61,7 @@ position = Vector2(-1016, 3016)
 position = Vector2(-1784, 632)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
 color = Color(0.0643933, 0.000962321, 0.0372444, 1)
 
 [node name="Molten" parent="." instance=ExtResource("4_ir8iy")]

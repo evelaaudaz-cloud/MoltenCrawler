@@ -4,7 +4,7 @@ extends CharacterBody2D
 @onready var nav_agent = $NavigationAgent2D
 @onready var sprite = $Sprite2D
 @onready var anim_player = $AnimationPlayer
-
+var llaves = 0
 var esta_caminando = false
 
 @export var salud_maxima = 100
@@ -75,3 +75,9 @@ func _physics_process(_delta):
 	# CORRECCIÓN DE POSICIÓN MÍNIMA:
 	# Si estamos muy cerca de un muro, el NavigationAgent debería corregirnos.
 	# Asegúrate de tener el "Agent Radius" en el NavigationRegion2D configurado.
+func obtener_llave():
+	llaves += 1
+	print(llaves)
+	
+func usar_llave():
+	llaves -= 1
