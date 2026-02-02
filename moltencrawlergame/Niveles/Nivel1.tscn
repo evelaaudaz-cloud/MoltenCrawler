@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://cthfm1t6cbbgw"]
+[gd_scene load_steps=16 format=4 uid="uid://cthfm1t6cbbgw"]
 
 [ext_resource type="Script" uid="uid://bte05mpmipyvc" path="res://shelter.gd" id="1_qf4rs"]
 [ext_resource type="PackedScene" uid="uid://bgjyeg2ctrmf3" path="res://hud.tscn" id="2_x3adq"]
@@ -8,8 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://iip6qplgfavr" path="res://comida.tscn" id="6_sh17j"]
 [ext_resource type="PackedScene" uid="uid://b61d74wsn1x5d" path="res://linterna.tscn" id="7_y2gcv"]
 [ext_resource type="PackedScene" uid="uid://q063hgluw7ih" path="res://area_2d.tscn" id="8_4q1xx"]
-[ext_resource type="Script" uid="uid://d22743we34bws" path="res://interfaz.gd" id="9_gie14"]
-[ext_resource type="FontFile" uid="uid://ouh1xbtk4yvl" path="res://Bitcount_Single/BitcountSingle-VariableFont_CRSV,ELSH,ELXP,slnt,wght.ttf" id="10_x8vbp"]
 [ext_resource type="PackedScene" uid="uid://cxkr60ljscrn8" path="res://generador.tscn" id="11_empjq"]
 [ext_resource type="PackedScene" uid="uid://b57yfvi131kc2" path="res://llave.tscn" id="12_1x3sl"]
 
@@ -44,7 +42,7 @@ fill = 1
 fill_from = Vector2(0.514188, 0.547009)
 fill_to = Vector2(0.340969, 0.15812)
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D2" type="Node2D"]
 script = ExtResource("1_qf4rs")
 
 [node name="HUD" parent="." instance=ExtResource("2_x3adq")]
@@ -61,29 +59,6 @@ tile_set = SubResource("TileSet_q6r6c")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.0643933, 0.000962321, 0.0372444, 1)
-
-[node name="CanvasLayer" type="CanvasLayer" parent="CanvasModulate"]
-layer = 10
-script = ExtResource("9_gie14")
-
-[node name="Mensaje" type="Label" parent="CanvasModulate/CanvasLayer"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -30.0
-offset_top = -12.5
-offset_right = 30.0
-offset_bottom = 12.5
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(5.30554, 6.25803)
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("10_x8vbp")
-theme_override_font_sizes/font_size = 20
-text = "CLEAR"
-horizontal_alignment = 1
 
 [node name="Molten" parent="." instance=ExtResource("4_n4s16")]
 position = Vector2(54, 71)

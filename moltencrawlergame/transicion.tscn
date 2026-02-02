@@ -1,0 +1,90 @@
+[gd_scene load_steps=6 format=3 uid="uid://5tpxq1tvr2wq"]
+
+[ext_resource type="Script" uid="uid://dnfinbrm4wkul" path="res://transicion.gd" id="1_s5bhu"]
+[ext_resource type="FontFile" uid="uid://crs24vi06wocd" path="res://Bitcount_Single/static/BitcountSingle-Medium.ttf" id="1_tfkoo"]
+
+[sub_resource type="Animation" id="Animation_x6d2c"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextoClear:theme_override_colors/font_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.988235, 0, 0.301961, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TextoClear:theme_override_colors/font_shadow_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0.992157, 0.388235, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_s5bhu"]
+resource_name = "nivel_completado"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextoClear:theme_override_colors/font_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.01, 3.99, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.988235, 0, 0.301961, 0), Color(0.988235, 0, 0.301961, 1), Color(0.988235, 0, 0.301961, 1), Color(0.988235, 0, 0.301961, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TextoClear:theme_override_colors/font_shadow_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.833333, 4.2, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(0, 0.992157, 0.388235, 0), Color(0, 0.992157, 0.388235, 1), Color(0, 0.992157, 0.388235, 1), Color(0, 0.992157, 0.388235, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jf1j2"]
+_data = {
+&"RESET": SubResource("Animation_x6d2c"),
+&"nivel_completado": SubResource("Animation_s5bhu")
+}
+
+[node name="Transicion" type="CanvasLayer"]
+script = ExtResource("1_s5bhu")
+
+[node name="Fondo" type="ColorRect" parent="."]
+offset_right = 1280.0
+offset_bottom = 720.0
+color = Color(0, 0, 0, 1)
+
+[node name="TextoClear" type="Label" parent="."]
+offset_left = 128.0
+offset_top = 320.0
+offset_right = 280.0
+offset_bottom = 389.0
+theme_override_colors/font_color = Color(0.988235, 0, 0.301961, 0)
+theme_override_colors/font_shadow_color = Color(0, 0.992157, 0.388235, 0)
+theme_override_fonts/font = ExtResource("1_tfkoo")
+theme_override_font_sizes/font_size = 50
+text = "CLEAR"
+horizontal_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_jf1j2")
+}
