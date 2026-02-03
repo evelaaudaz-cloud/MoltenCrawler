@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://cthfm1t6cbbgw"]
+[gd_scene load_steps=14 format=4 uid="uid://cthfm1t6cbbgw"]
 
 [ext_resource type="Script" uid="uid://bte05mpmipyvc" path="res://shelter.gd" id="1_qf4rs"]
 [ext_resource type="PackedScene" uid="uid://bgjyeg2ctrmf3" path="res://hud.tscn" id="2_x3adq"]
@@ -31,17 +31,6 @@ physics_layer_0/collision_layer = 1
 navigation_layer_0/layers = 1
 sources/1 = SubResource("TileSetAtlasSource_0hol4")
 
-[sub_resource type="Gradient" id="Gradient_487me"]
-offsets = PackedFloat32Array(0.117409, 1)
-colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_t0gpw"]
-gradient = SubResource("Gradient_487me")
-width = 150
-fill = 1
-fill_from = Vector2(0.514188, 0.547009)
-fill_to = Vector2(0.340969, 0.15812)
-
 [node name="Node2D2" type="Node2D"]
 script = ExtResource("1_qf4rs")
 
@@ -58,6 +47,7 @@ tile_map_data = PackedByteArray("AAAAAAAAAQABAAAAAAAAAAEAAQABAAAAAAAAAP//AQABAAA
 tile_set = SubResource("TileSet_q6r6c")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
 color = Color(0.0643933, 0.000962321, 0.0372444, 1)
 
 [node name="Molten" parent="." instance=ExtResource("4_n4s16")]
@@ -97,9 +87,3 @@ scale = Vector2(0.5, 0.5)
 [node name="Llave3" parent="." instance=ExtResource("12_1x3sl")]
 position = Vector2(-1025, -1042)
 scale = Vector2(0.5, 0.5)
-
-[node name="PointLight2D" type="PointLight2D" parent="Llave3"]
-position = Vector2(-1, 3)
-scale = Vector2(4.42583, 9.80578)
-color = Color(0.917647, 0.247059, 0.180392, 1)
-texture = SubResource("GradientTexture2D_t0gpw")

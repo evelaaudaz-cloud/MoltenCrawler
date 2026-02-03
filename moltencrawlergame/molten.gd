@@ -5,6 +5,8 @@ extends CharacterBody2D
 @onready var sprite = $Sprite2D
 @onready var anim_player = $AnimationPlayer
 var llaves = 0
+var speed_agua = 100.0
+var esta_en_agua = false
 var esta_caminando = false
 
 @export var salud_maxima = 100
@@ -42,6 +44,7 @@ func _unhandled_input(event):
 		anim_player.play("walk")
 
 func _physics_process(_delta):
+	detectar_suelo()
 	if nav_agent.is_navigation_finished():
 		if esta_caminando:
 			esta_caminando = false
@@ -67,6 +70,8 @@ func _physics_process(_delta):
 	
 	# Forzamos modo flotante para evitar fricción de suelo invisible
 	motion_mode = CharacterBody2D.MOTION_MODE_FLOATING
+	if esta_en_agua:
+		recibir_daño(10 * _delta) # 10 de daño por segundo
 	
 	# Esta es la clave: move_and_slide procesará la colisión, 
 	# pero el nav_agent nos mantendrá en la ruta segura.
@@ -81,3 +86,32 @@ func obtener_llave():
 	
 func usar_llave():
 	llaves -= 1
+
+func detectar_suelo():
+	var tilemap = get_parent().get_node("TileMap") # Ajusta la ruta a tu TileMap
+	
+	# Convertimos la posición de Molten a coordenadas de celda (grid)
+	var local_pos = tilemap.to_local(global_position)
+	var map_pos = tilemap.local_to_map(local_pos)
+	
+	# Obtenemos los datos de la baldosa en la capa 0 (donde está el suelo)
+	var data = tilemap.get_cell_tile_data(0, map_pos)
+	
+	if data:
+		var tipo_suelo = data.get_custom_data("tipo")
+		
+		if tipo_suelo == "agua":
+			if not esta_en_agua:
+				esta_en_agua = true
+			speed = speed_agua
+			print("¡Glup! Entrando al agua")
+		else:
+			salir_del_agua()
+	else:
+		salir_del_agua()
+
+func salir_del_agua():
+	if esta_en_agua:
+		esta_en_agua = false
+		speed = speed
+		print("Fuera del agua")
