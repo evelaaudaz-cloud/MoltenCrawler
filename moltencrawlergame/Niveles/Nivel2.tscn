@@ -98,7 +98,6 @@ position = Vector2(134, 102)
 tile_set = SubResource("TileSet_6jce0")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-visible = false
 color = Color(0.0643933, 0.000962321, 0.0372444, 1)
 
 [node name="Molten" parent="." instance=ExtResource("4_6jce0")]

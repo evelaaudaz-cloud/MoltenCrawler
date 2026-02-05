@@ -4,8 +4,8 @@ extends Node
 var nivel_actual = 1
 var generadores_activados = 0
 var generadores_totales_en_nivel = 0
+var escena_donde_murio : String = "" # Movida arriba con las demás
 
-# Esta función la llamará cada generador al aparecer (en su _ready)
 func registrar_generador():
 	generadores_totales_en_nivel += 1
 	print("Generador registrado. Total en este nivel: ", generadores_totales_en_nivel)
@@ -18,14 +18,24 @@ func generador_completado():
 		completar_nivel()
 	else:
 		print("Generador activado... Faltan " + str(generadores_totales_en_nivel - generadores_activados))
+		
+func reset_progreso():
+	generadores_activados = 0
+	generadores_totales_en_nivel = 0
+	print("Reiniciado")
 
 func completar_nivel():
 	nivel_actual += 1
-	# Resetear conteos para el próximo nivel
-	generadores_activados = 0
-	generadores_totales_en_nivel = 0 
-	if Transicion:
+	reset_progreso() # Usamos tu función de reset para limpiar todo
+	
+	if get_node_or_null("/root/Transicion"):
 		Transicion.jugar_transicion_salida()
 	
-	# Esperar un poco para que el jugador vea el mensaje y respire
+	# Nota: Si el Autoload de Transicion cambia la escena, 
+	# quizás quieras quitar el change_scene de aquí para que no choquen.
 	get_tree().change_scene_to_file("res://Refugio.tscn")
+
+func jugador_murio(ruta_escena_actual):
+	escena_donde_murio = ruta_escena_actual
+	reset_progreso()
+	get_tree().change_scene_to_file("res://GameOver.tscn")
