@@ -1,6 +1,5 @@
 extends Area2D
 
-# Ya no necesitamos send_to_scene fija, la calcularemos
 @onready var label = $Label
 @onready var anim_player = $AnimationPlayer
 
@@ -8,25 +7,37 @@ func _ready():
 	mouse_entered.connect(_on_mouse_entered)
 	mouse_exited.connect(_on_mouse_exited)
 	body_entered.connect(_on_body_entered)
-	label.text = "Bajar a la Planta " + str(GameManager.nivel_actual)
+	
+	# Usamos int() para que el texto inicial sea "Planta 1" y no "Planta 1.0"
+	label.text = "Bajar a la Planta " + str(int(GameManager.nivel_actual))
+	label.hide() # Empezamos con el label oculto
 
 func _on_mouse_entered():
-	label.text = "Entrar al Nivel " + str(GameManager.nivel_actual)
+	# Aplicamos int() aquí también para el mensaje al pasar el mouse
+	label.text = "Entrar al Nivel " + str(int(GameManager.nivel_actual))
 	label.show()
 
 func _on_mouse_exited():
 	label.hide()
 
 func _on_body_entered(body):
-	if body.name == "Molten":
+	# Usamos is_in_group o el nombre exacto como ya tenías
+	if body.name == "Molten" or body.is_in_group("jugador"):
 		body.set_physics_process(false)
 		
-		# Construimos la ruta dinámicamente
-		# Esto asume que tus escenas se llaman Nivel1.tscn, Nivel2.tscn, etc.
-		var ruta_nivel = "res://Niveles/Nivel" + str(GameManager.nivel_actual) + ".tscn"
+		# --- LA CORRECCIÓN CLAVE ---
+		# Convertimos a int() antes de pasarlo a string para quitar los decimales del JSON
+		var nivel_id = int(GameManager.nivel_actual)
+		var ruta_nivel = "res://Niveles/Nivel" + str(nivel_id) + ".tscn"
 		
-		anim_player.play("fade_out")
-		await anim_player.animation_finished
+		print("Intentando cargar: ", ruta_nivel) # Debug para verificar en consola
+		
+		if anim_player.has_animation("fade_out"):
+			anim_player.play("fade_out")
+			await anim_player.animation_finished
 		
 		# Cambiamos al nivel correspondiente
-		get_tree().change_scene_to_file(ruta_nivel)
+		var error = get_tree().change_scene_to_file(ruta_nivel)
+		
+		if error != OK:
+			print("Error: No se encontró la escena en ", ruta_nivel)

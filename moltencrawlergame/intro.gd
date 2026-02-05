@@ -6,7 +6,7 @@ func _ready():
 
 func _input(event):
 	# Si presiona Escape o cualquier tecla de omitir
-	if event.is_action_pressed("ui_cancel"): 
+	if event.is_action_pressed("click"): 
 		_al_terminar_video()
 
 func _on_boton_omitir_pressed():

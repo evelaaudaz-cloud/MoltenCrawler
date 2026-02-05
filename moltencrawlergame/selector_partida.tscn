@@ -1,0 +1,41 @@
+[gd_scene load_steps=3 format=3 uid="uid://deh8vkab6gc1b"]
+
+[ext_resource type="Script" uid="uid://difukaq8jvyxa" path="res://selector_partida.gd" id="1_ttucw"]
+[ext_resource type="FontFile" uid="uid://ouh1xbtk4yvl" path="res://Bitcount_Single/BitcountSingle-VariableFont_CRSV,ELSH,ELXP,slnt,wght.ttf" id="2_fwt0w"]
+
+[node name="SelectorPartida" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ttucw")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 408.0
+offset_top = 184.0
+offset_right = 448.0
+offset_bottom = 224.0
+
+[node name="Continuar" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0, 1, 0.607843, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_fwt0w")
+theme_override_font_sizes/font_size = 100
+text = "CONTINUE"
+flat = true
+
+[node name="Nuevo" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0, 1, 0.607843, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_fwt0w")
+theme_override_font_sizes/font_size = 100
+text = "NEW GAME"
+flat = true
+
+[connection signal="pressed" from="VBoxContainer/Continuar" to="." method="_on_continuar_pressed"]
+[connection signal="pressed" from="VBoxContainer/Nuevo" to="." method="_on_nuevo_pressed"]

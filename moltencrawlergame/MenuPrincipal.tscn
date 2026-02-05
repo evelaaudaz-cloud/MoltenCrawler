@@ -1,8 +1,46 @@
-[gd_scene load_steps=4 format=3 uid="uid://bdv7pbcw6bejb"]
+[gd_scene load_steps=7 format=3 uid="uid://bdv7pbcw6bejb"]
 
 [ext_resource type="Script" uid="uid://bhgwkyfs5hqiv" path="res://menu_principal.gd" id="1_ba235"]
 [ext_resource type="FontFile" uid="uid://ouh1xbtk4yvl" path="res://Bitcount_Single/BitcountSingle-VariableFont_CRSV,ELSH,ELXP,slnt,wght.ttf" id="2_5dpk2"]
 [ext_resource type="AudioStream" uid="uid://m25k7jdypwov" path="res://F2 - Drifting time misplaced(MP3_160K).mp3" id="3_5dpk2"]
+
+[sub_resource type="Animation" id="Animation_5dpk2"]
+resource_name = "idle"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VBoxContainer/Label:theme_override_colors/font_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.433333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.254902, 1, 0.611765, 1), Color(0.759391, 0.108104, 0.286145, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_pi62y"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VBoxContainer/Label:theme_override_colors/font_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ectly"]
+_data = {
+&"RESET": SubResource("Animation_pi62y"),
+&"idle": SubResource("Animation_5dpk2")
+}
 
 [node name="MenuPrincipal" type="Control"]
 layout_mode = 3
@@ -21,6 +59,7 @@ alignment = 1
 
 [node name="Label" type="Label" parent="VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_5dpk2")
 theme_override_font_sizes/font_size = 100
 text = "THE FURNACE"
@@ -35,6 +74,8 @@ horizontal_alignment = 1
 
 [node name="BotonJugar" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.933333, 0, 0.407843, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_5dpk2")
 theme_override_font_sizes/font_size = 70
 text = "JUGAR"
@@ -42,6 +83,8 @@ flat = true
 
 [node name="BotonSalir" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.933333, 0, 0.407843, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_5dpk2")
 theme_override_font_sizes/font_size = 70
 text = "SALIR"
@@ -50,3 +93,9 @@ flat = true
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_5dpk2")
 autoplay = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_ectly")
+}
+movie_quit_on_finish = true
