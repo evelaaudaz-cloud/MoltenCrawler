@@ -11,7 +11,7 @@ func _ready():
 func _on_jugar_pressed():
 	# Por ahora, vamos directo al Nivel 1
 	# Más adelante aquí podrías poner la selección de personajes o niveles
-	get_tree().change_scene_to_file("res://Nivel1.tscn")
+	get_tree().change_scene_to_file("res://Refugio.tscn")
 
 func _on_salir_pressed():
 	# Cerramos el juego

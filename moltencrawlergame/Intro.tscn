@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://boaaepdokie0q"]
 
 [ext_resource type="Script" uid="uid://c2kte4t2fipny" path="res://intro.gd" id="1_sb8jg"]
-[ext_resource type="VideoStream" uid="uid://c6mbrokrwl8ss" path="res://The Fun-race (2).ogv" id="2_vltdc"]
+[ext_resource type="VideoStream" uid="uid://do78srcv35hio" path="res://tghe funrazor.ogv" id="2_sb8jg"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -17,6 +17,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-stream = ExtResource("2_vltdc")
+stream = ExtResource("2_sb8jg")
 autoplay = true
 expand = true

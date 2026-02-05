@@ -1,16 +1,16 @@
 extends Control
 
-@onready var video = $VideoStreamPlayer
-
 func _ready():
-	if video.stream == null:
-		print("¡ERROR: No hay ningún vídeo cargado en el nodo!")
-	else:
-		print("Vídeo detectado, intentando reproducir: ", video.stream.resource_path)
-		video.play()
+	# Cuando el vídeo termine solo, vamos al menú
+	$VideoStreamPlayer.finished.connect(_al_terminar_video)
 
-func _process(_delta):
-	if video.is_playing():
-		# Esto imprimirá el segundo actual del vídeo
-		# print("Reproduciendo... ", video.stream_position)
-		pass
+func _input(event):
+	# Si presiona Escape o cualquier tecla de omitir
+	if event.is_action_pressed("ui_cancel"): 
+		_al_terminar_video()
+
+func _on_boton_omitir_pressed():
+	_al_terminar_video()
+
+func _al_terminar_video():
+	get_tree().change_scene_to_file("res://MenuPrincipal.tscn")

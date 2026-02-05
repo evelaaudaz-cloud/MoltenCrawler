@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bdv7pbcw6bejb"]
+[gd_scene load_steps=4 format=3 uid="uid://bdv7pbcw6bejb"]
 
 [ext_resource type="Script" uid="uid://bhgwkyfs5hqiv" path="res://menu_principal.gd" id="1_ba235"]
 [ext_resource type="FontFile" uid="uid://ouh1xbtk4yvl" path="res://Bitcount_Single/BitcountSingle-VariableFont_CRSV,ELSH,ELXP,slnt,wght.ttf" id="2_5dpk2"]
+[ext_resource type="AudioStream" uid="uid://m25k7jdypwov" path="res://F2 - Drifting time misplaced(MP3_160K).mp3" id="3_5dpk2"]
 
 [node name="MenuPrincipal" type="Control"]
 layout_mode = 3
@@ -45,3 +46,7 @@ theme_override_fonts/font = ExtResource("2_5dpk2")
 theme_override_font_sizes/font_size = 70
 text = "SALIR"
 flat = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_5dpk2")
+autoplay = true
