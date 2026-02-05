@@ -1,0 +1,47 @@
+[gd_scene load_steps=3 format=3 uid="uid://bdv7pbcw6bejb"]
+
+[ext_resource type="Script" uid="uid://bhgwkyfs5hqiv" path="res://menu_principal.gd" id="1_ba235"]
+[ext_resource type="FontFile" uid="uid://ouh1xbtk4yvl" path="res://Bitcount_Single/BitcountSingle-VariableFont_CRSV,ELSH,ELXP,slnt,wght.ttf" id="2_5dpk2"]
+
+[node name="MenuPrincipal" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+script = ExtResource("1_ba235")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 280.0
+offset_top = 160.0
+offset_right = 940.0
+offset_bottom = 314.0
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_5dpk2")
+theme_override_font_sizes/font_size = 100
+text = "THE FURNACE"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_5dpk2")
+theme_override_font_sizes/font_size = 25
+text = "(LA CALDERA)"
+horizontal_alignment = 1
+
+[node name="BotonJugar" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_5dpk2")
+theme_override_font_sizes/font_size = 70
+text = "JUGAR"
+flat = true
+
+[node name="BotonSalir" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_5dpk2")
+theme_override_font_sizes/font_size = 70
+text = "SALIR"
+flat = true
