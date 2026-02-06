@@ -9,7 +9,7 @@ var lineas_tutorial = [
 	"[???]: Menos mal, me temía que murieras",
 	"[???]: No vayas a entrar en la caldera aún \nsi quieres mantenerte así",
 	"[YEKATERINA]: Mi nombre es Yekaterina, \ndueña del Nave Park",
-	"[YEKATERINA]: Puedes moverte haciendo click \na donde quieras ir",
+	"[YEKATERINA]: Puedes moverte haciendo click \na donde quieras ir, pero aun no",
 	"[YEKATERINA]: Esta mierda esta plagada de \nesas cosas...",
 	"[YEKATERINA]: Le temen a la luz, tendrás que \nenfrentarlos",
 	"[YEKATERINA]: Se a quien estas buscando, \ny por el momento no puedo ayudarte",
@@ -28,8 +28,10 @@ var lineas_tutorial = [
 
 var indice = 0
 var escribiendo = false
+@onready var glitch = $AnimationPlayer
 
 func _ready():
+	glitch.play("glitch")
 	# Solo mostramos el tutorial si es una partida nueva
 	# (Puedes usar una variable en el GameManager para esto)
 	if GameManager.nivel_actual == 1:
