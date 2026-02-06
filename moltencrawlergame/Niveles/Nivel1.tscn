@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://cthfm1t6cbbgw"]
+[gd_scene load_steps=15 format=4 uid="uid://cthfm1t6cbbgw"]
 
 [ext_resource type="Script" uid="uid://bte05mpmipyvc" path="res://shelter.gd" id="1_dbeie"]
 [ext_resource type="PackedScene" uid="uid://bgjyeg2ctrmf3" path="res://hud.tscn" id="2_j43g0"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://q063hgluw7ih" path="res://area_2d.tscn" id="8_b66kr"]
 [ext_resource type="PackedScene" uid="uid://cxkr60ljscrn8" path="res://generador.tscn" id="9_0irwi"]
 [ext_resource type="PackedScene" uid="uid://b57yfvi131kc2" path="res://llave.tscn" id="10_q232i"]
+[ext_resource type="PackedScene" uid="uid://bo3vk403kqoaa" path="res://capa_retro.tscn" id="11_hxbhg"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_d21ai"]
 vertices = PackedVector2Array(64, 64, -64, 64, -64, -64, 64, -64)
@@ -86,3 +87,5 @@ scale = Vector2(0.5, 0.5)
 [node name="Llave3" parent="." instance=ExtResource("10_q232i")]
 position = Vector2(-1025, -1042)
 scale = Vector2(0.5, 0.5)
+
+[node name="CapaRetro" parent="." instance=ExtResource("11_hxbhg")]

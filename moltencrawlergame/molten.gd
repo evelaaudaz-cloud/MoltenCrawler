@@ -50,6 +50,10 @@ func _physics_process(delta):
 			esta_caminando = false
 			anim_player.play("idle")
 			velocity = Vector2.ZERO
+			# --- CAMBIO AQUÍ: ---
+			# Forzamos el silencio aquí porque el 'return' de abajo
+			# impide que se lea el resto del código.
+			$SonidoPasos.stop() 
 		return
 
 	# Obtener siguiente punto y dirección
@@ -66,10 +70,17 @@ func _physics_process(delta):
 		sprite.flip_h = true
 	elif next_path_pos.x > global_position.x + 2:
 		sprite.flip_h = false
-
+		
 	# Aplicar movimiento
 	velocity = direction * velocidad_actual
 	motion_mode = CharacterBody2D.MOTION_MODE_FLOATING
+	
+	# --- CAMBIO AQUÍ: ---
+	# Como el código llegó hasta aquí, sabemos 100% que se está moviendo.
+	# Ya no hace falta medir la velocidad, solo darle play si no suena.
+	if not $SonidoPasos.playing:
+		$SonidoPasos.play()
+	
 	move_and_slide()
 
 # --- FUNCIONES DE SISTEMA ---

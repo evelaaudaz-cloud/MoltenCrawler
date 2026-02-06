@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c1gqeofvxdqkx"
+path="res://.godot/imported/👣👣 Pasos 🏃🏻🧩Normales 🦵🏻 Normal Steps Sound Effect (HD)(MP3_160K).mp3-772761f854cf4fc48ae93c5ec087a9db.mp3str"
+
+[deps]
+
+source_file="res://👣👣 Pasos 🏃🏻🧩Normales 🦵🏻 Normal Steps Sound Effect (HD)(MP3_160K).mp3"
+dest_files=["res://.godot/imported/👣👣 Pasos 🏃🏻🧩Normales 🦵🏻 Normal Steps Sound Effect (HD)(MP3_160K).mp3-772761f854cf4fc48ae93c5ec087a9db.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=4 uid="uid://bvm0xy4unn6fm"]
+[gd_scene load_steps=29 format=4 uid="uid://bvm0xy4unn6fm"]
 
 [ext_resource type="Script" uid="uid://bte05mpmipyvc" path="res://shelter.gd" id="1_kb7wc"]
 [ext_resource type="PackedScene" uid="uid://bgjyeg2ctrmf3" path="res://hud.tscn" id="2_5fed4"]
@@ -12,9 +12,11 @@
 [ext_resource type="Texture2D" uid="uid://cr6ldcph6rmnq" path="res://bed.png" id="9_si6ns"]
 [ext_resource type="Script" uid="uid://n37p5liud4c" path="res://canvas_layer.gd" id="11_4j7fr"]
 [ext_resource type="FontFile" uid="uid://godjgk1qqb3y" path="res://Bitcount_Single/static/BitcountSingle-Light.ttf" id="12_2lj40"]
+[ext_resource type="Texture2D" uid="uid://b5k7vo7v85m11" path="res://Yekaterina.png" id="12_svwtx"]
 [ext_resource type="FontFile" uid="uid://ccbexmso4j8pq" path="res://Bitcount_Single/static/BitcountSingle-SemiBold.ttf" id="13_svwtx"]
 [ext_resource type="FontFile" uid="uid://cmfsrjke3eyf" path="res://Bitcount_Single/static/BitcountSingle_Roman-Regular.ttf" id="14_5t8j0"]
 [ext_resource type="FontFile" uid="uid://bb34nm0lmp02r" path="res://Bitcount_Single/static/BitcountSingle_Cursive-Regular.ttf" id="15_vbf6b"]
+[ext_resource type="PackedScene" uid="uid://bo3vk403kqoaa" path="res://capa_retro.tscn" id="17_5t8j0"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_d21ai"]
 vertices = PackedVector2Array(64, 64, -64, 64, -64, -64, 64, -64)
@@ -42,21 +44,42 @@ light_mode = 1
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4j7fr"]
 size = Vector2(136, 80)
 
-[sub_resource type="Animation" id="Animation_2lj40"]
-resource_name = "glitch"
+[sub_resource type="Animation" id="Animation_5t8j0"]
+resource_name = "idle"
 length = 0.5
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("TextureRect/TextureDialogo:position")
+tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.06, 0.1, 0.2, 0.3, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(40, -632), Vector2(22, -640), Vector2(32, -632), Vector2(32, -648), Vector2(32, -640), Vector2(22, -648)]
+"times": PackedFloat32Array(0, 0.133333, 0.233333, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [1, 0, 3, 2]
+}
+
+[sub_resource type="Animation" id="Animation_vbf6b"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8w1dr"]
+_data = {
+&"RESET": SubResource("Animation_vbf6b"),
+&"idle": SubResource("Animation_5t8j0")
 }
 
 [sub_resource type="Animation" id="Animation_svwtx"]
@@ -72,6 +95,23 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(40, -632)]
+}
+
+[sub_resource type="Animation" id="Animation_2lj40"]
+resource_name = "glitch"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect/TextureDialogo:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.06, 0.1, 0.2, 0.3, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(40, -632), Vector2(22, -640), Vector2(32, -632), Vector2(32, -648), Vector2(32, -640), Vector2(22, -648)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5t8j0"]
@@ -96,7 +136,6 @@ tile_map_data = PackedByteArray("AAAAAAAAAQABAAAAAAAAAAEAAQABAAAAAAAAAP//AQABAAA
 tile_set = SubResource("TileSet_q6r6c")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-visible = false
 color = Color(0.0643933, 0.000962321, 0.0372444, 1)
 
 [node name="Molten" parent="." instance=ExtResource("4_4j7fr")]
@@ -150,6 +189,8 @@ texture = ExtResource("9_si6ns")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="bed"]
 shape = SubResource("RectangleShape2D_4j7fr")
 
+[node name="CapaRetro" parent="." instance=ExtResource("17_5t8j0")]
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 script = ExtResource("11_4j7fr")
 
@@ -158,12 +199,24 @@ offset_top = 680.0
 offset_right = 1280.0
 offset_bottom = 720.0
 
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/TextureRect"]
+position = Vector2(1128, -503)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("12_svwtx")
+hframes = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/TextureRect/Sprite2D"]
+libraries = {
+&"": SubResource("AnimationLibrary_8w1dr")
+}
+
 [node name="TextureDialogo" type="RichTextLabel" parent="CanvasLayer/TextureRect"]
 layout_mode = 0
 offset_left = 40.0
 offset_top = -632.0
-offset_right = 1240.0
+offset_right = 1024.0
 offset_bottom = -240.0
+mouse_filter = 2
 theme_override_colors/default_color = Color(0.774446, 0.774446, 0, 1)
 theme_override_fonts/normal_font = ExtResource("9_4j7fr")
 theme_override_fonts/mono_font = ExtResource("12_2lj40")
@@ -179,8 +232,11 @@ text = "hi"
 
 [node name="IndicadorEspacio" type="RichTextLabel" parent="CanvasLayer/TextureRect"]
 layout_mode = 0
-offset_right = 1280.0
-offset_bottom = 40.0
+offset_left = 472.0
+offset_top = -240.0
+offset_right = 776.0
+offset_bottom = -160.0
+mouse_filter = 2
 theme_override_colors/default_color = Color(0.890196, 0, 0.698039, 1)
 theme_override_fonts/normal_font = ExtResource("9_4j7fr")
 theme_override_fonts/mono_font = ExtResource("12_2lj40")
@@ -190,10 +246,10 @@ theme_override_fonts/bold_font = ExtResource("15_vbf6b")
 theme_override_font_sizes/bold_italics_font_size = 40
 theme_override_font_sizes/italics_font_size = 40
 theme_override_font_sizes/mono_font_size = 40
-theme_override_font_sizes/normal_font_size = 40
+theme_override_font_sizes/normal_font_size = 60
 theme_override_font_sizes/bold_font_size = 40
 text = "[SPACE]"
-horizontal_alignment = 2
+horizontal_alignment = 1
 
 [node name="TimerEscritura" type="Timer" parent="CanvasLayer"]
 wait_time = 0.05
@@ -202,3 +258,15 @@ wait_time = 0.05
 libraries = {
 &"": SubResource("AnimationLibrary_5t8j0")
 }
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer2"]
+offset_left = 16.0
+offset_top = 664.0
+offset_right = 331.0
+offset_bottom = 707.0
+theme_override_colors/font_color = Color(0.890196, 0, 0.698039, 1)
+theme_override_fonts/font = ExtResource("9_4j7fr")
+theme_override_font_sizes/font_size = 35
+text = "HOLD ESC TO END GAME"

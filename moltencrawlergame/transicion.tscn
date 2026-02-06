@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://5tpxq1tvr2wq"]
+[gd_scene load_steps=7 format=3 uid="uid://5tpxq1tvr2wq"]
 
 [ext_resource type="Script" uid="uid://dnfinbrm4wkul" path="res://transicion.gd" id="1_s5bhu"]
 [ext_resource type="FontFile" uid="uid://crs24vi06wocd" path="res://Bitcount_Single/static/BitcountSingle-Medium.ttf" id="1_tfkoo"]
+[ext_resource type="PackedScene" uid="uid://bo3vk403kqoaa" path="res://capa_retro.tscn" id="3_x6d2c"]
 
 [sub_resource type="Animation" id="Animation_x6d2c"]
 length = 0.001
@@ -88,3 +89,5 @@ horizontal_alignment = 1
 libraries = {
 &"": SubResource("AnimationLibrary_jf1j2")
 }
+
+[node name="CapaRetro" parent="." instance=ExtResource("3_x6d2c")]

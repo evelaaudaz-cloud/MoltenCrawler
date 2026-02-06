@@ -1,8 +1,24 @@
-[gd_scene load_steps=7 format=3 uid="uid://bdv7pbcw6bejb"]
+[gd_scene load_steps=8 format=3 uid="uid://bdv7pbcw6bejb"]
 
 [ext_resource type="Script" uid="uid://bhgwkyfs5hqiv" path="res://menu_principal.gd" id="1_ba235"]
 [ext_resource type="FontFile" uid="uid://ouh1xbtk4yvl" path="res://Bitcount_Single/BitcountSingle-VariableFont_CRSV,ELSH,ELXP,slnt,wght.ttf" id="2_5dpk2"]
 [ext_resource type="AudioStream" uid="uid://m25k7jdypwov" path="res://F2 - Drifting time misplaced(MP3_160K).mp3" id="3_5dpk2"]
+[ext_resource type="PackedScene" uid="uid://bo3vk403kqoaa" path="res://capa_retro.tscn" id="4_pi62y"]
+
+[sub_resource type="Animation" id="Animation_pi62y"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VBoxContainer/Label:theme_override_colors/font_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_5dpk2"]
 resource_name = "idle"
@@ -19,21 +35,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(0.254902, 1, 0.611765, 1), Color(0.759391, 0.108104, 0.286145, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_pi62y"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("VBoxContainer/Label:theme_override_colors/font_color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ectly"]
@@ -99,3 +100,5 @@ libraries = {
 &"": SubResource("AnimationLibrary_ectly")
 }
 movie_quit_on_finish = true
+
+[node name="CapaRetro" parent="." instance=ExtResource("4_pi62y")]

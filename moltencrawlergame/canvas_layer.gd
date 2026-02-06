@@ -3,25 +3,26 @@ extends CanvasLayer
 @onready var texto_label = $TextureRect/TextureDialogo
 @onready var indicador = $TextureRect/IndicadorEspacio
 @onready var timer = $TimerEscritura
+@onready var glotch = $TextureRect/Sprite2D/AnimationPlayer
 
 var lineas_tutorial = [
 	"[???]: Hey tu, ¿Ya despertaste?",
 	"[???]: Menos mal, me temía que murieras",
-	"[???]: No vayas a entrar en la caldera aún \nsi quieres mantenerte así",
-	"[YEKATERINA]: Mi nombre es Yekaterina, \ndueña del Nave Park",
-	"[YEKATERINA]: Puedes moverte haciendo click \na donde quieras ir, pero aun no",
-	"[YEKATERINA]: Esta mierda esta plagada de \nesas cosas...",
-	"[YEKATERINA]: Le temen a la luz, tendrás que \nenfrentarlos",
-	"[YEKATERINA]: Se a quien estas buscando, \ny por el momento no puedo ayudarte",
-	"[YEKATERINA]: Necesito que bajes a la caldera \ny pongas madera en los hornos",
-	"[YEKATERINA]: Encontrarás leños, a tientas, \nen la obscuridad",
-	"[YEKATERINA]: Oh, y, cuidado con el agua, \nes toxica",
-	"[YEKATERINA]: Poseidon sabe cuanto tiempo \nha estado estancada",
-	"[YEKATERINA]: Eso si, la comida del parque \nes muy resistente",
-	"[YEKATERINA]: Debe haber algo que puedas \ncomer por ahi",
-	"[YEKATERINA]: Por ultimo, no querras olvidar \ntodo lo que haz hecho",
-	"[YEKATERINA]: Aqui en el refugio hay una \ncama para que descanses",
-	"[YEKATERINA]: Diría alguna bazofia como que \n'creo en ti'",
+	"[???]: No vayas a entrar en la caldera aún si quieres mantenerte así",
+	"[YEKATERINA]: Mi nombre es Yekaterina, dueña del Navy Park",
+	"[YEKATERINA]: Puedes moverte haciendo click a donde quieras ir, pero aun no",
+	"[YEKATERINA]: Esta mierda esta plagada de esas cosas...",
+	"[YEKATERINA]: Le temen a la luz, tendrás que enfrentarlos",
+	"[YEKATERINA]: Se a quien estas buscando, y por el momento no puedo ayudarte",
+	"[YEKATERINA]: Necesito que bajes a la caldera y pongas madera en los hornos",
+	"[YEKATERINA]: Encontrarás leños, a tientas, en la obscuridad",
+	"[YEKATERINA]: Oh, y, cuidado con el agua, es toxica",
+	"[YEKATERINA]: Poseidon sabe cuanto tiempo ha estado estancada",
+	"[YEKATERINA]: Eso si, la comida del parque es muy resistente",
+	"[YEKATERINA]: Debe haber algo que puedas comer por ahi",
+	"[YEKATERINA]: Por ultimo, no querras olvidar todo lo que haz hecho",
+	"[YEKATERINA]: Aqui en el refugio hay una cama para que descanses",
+	"[YEKATERINA]: Diría alguna bazofia como que 'creo en ti'",
 	"[YEKATERINA]: Pero se que te costará una vida",
 	"[YEKATERINA]: Mucha suerte, Molten"
 ]
@@ -32,6 +33,7 @@ var escribiendo = false
 
 func _ready():
 	glitch.play("glitch")
+	glotch.play("idle")
 	# Solo mostramos el tutorial si es una partida nueva
 	# (Puedes usar una variable en el GameManager para esto)
 	if GameManager.nivel_actual == 1:

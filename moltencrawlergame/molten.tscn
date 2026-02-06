@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://c4l7pypp1hq50"]
+[gd_scene load_steps=11 format=3 uid="uid://c4l7pypp1hq50"]
 
 [ext_resource type="Script" uid="uid://dnwsr3t6iocdh" path="res://molten.gd" id="1_2bs05"]
 [ext_resource type="Texture2D" uid="uid://dg28nxv8l26mn" path="res://moltencitu.png" id="2_f1ewt"]
+[ext_resource type="AudioStream" uid="uid://c1gqeofvxdqkx" path="res://👣👣 Pasos 🏃🏻🧩Normales 🦵🏻 Normal Steps Sound Effect (HD)(MP3_160K).mp3" id="3_f1ewt"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2bs05"]
 radius = 42.95
@@ -101,3 +102,6 @@ texture = SubResource("GradientTexture2D_f1ewt")
 libraries = {
 &"": SubResource("AnimationLibrary_ce4dw")
 }
+
+[node name="SonidoPasos" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_f1ewt")

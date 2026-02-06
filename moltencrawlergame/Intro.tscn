@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://boaaepdokie0q"]
+[gd_scene load_steps=4 format=3 uid="uid://boaaepdokie0q"]
 
 [ext_resource type="Script" uid="uid://c2kte4t2fipny" path="res://intro.gd" id="1_sb8jg"]
 [ext_resource type="VideoStream" uid="uid://do78srcv35hio" path="res://tghe funrazor.ogv" id="2_sb8jg"]
+[ext_resource type="PackedScene" uid="uid://bo3vk403kqoaa" path="res://capa_retro.tscn" id="3_vltdc"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -20,3 +21,5 @@ grow_vertical = 2
 stream = ExtResource("2_sb8jg")
 autoplay = true
 expand = true
+
+[node name="CapaRetro" parent="." instance=ExtResource("3_vltdc")]

@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://bo3vk403kqoaa"]
+
+[ext_resource type="Shader" uid="uid://dexumjuuxqsb1" path="res://Screen.gdshader" id="1_7hwsi"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gvy65"]
+shader = ExtResource("1_7hwsi")
+shader_parameter/scanline_count = 99.034
+shader_parameter/scanline_opacity = 0.251
+shader_parameter/warp_amount = 0.239
+shader_parameter/vignette_amount = 0.093
+shader_parameter/aberration_amount = 0.211
+shader_parameter/noise_enabled = true
+shader_parameter/noise_strength = 0.247
+
+[node name="CapaRetro" type="CanvasLayer"]
+layer = 50
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_gvy65")
+offset_right = 1280.0
+offset_bottom = 720.0
+mouse_filter = 2
