@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=4 uid="uid://16qegnforbt7"]
+[gd_scene load_steps=23 format=4 uid="uid://16qegnforbt7"]
 
 [ext_resource type="Script" uid="uid://bte05mpmipyvc" path="res://shelter.gd" id="1_i2n6v"]
 [ext_resource type="PackedScene" uid="uid://bgjyeg2ctrmf3" path="res://hud.tscn" id="2_c0mop"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://cxkr60ljscrn8" path="res://generador.tscn" id="9_li2gl"]
 [ext_resource type="PackedScene" uid="uid://b57yfvi131kc2" path="res://llave.tscn" id="10_yeo37"]
 [ext_resource type="PackedScene" uid="uid://bo3vk403kqoaa" path="res://capa_retro.tscn" id="12_k3unr"]
+[ext_resource type="PackedScene" uid="uid://ccna0jmyl7srw" path="res://Machine.tscn" id="13_6jce0"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_d21ai"]
 vertices = PackedVector2Array(64, 64, -64, 64, -64, -64, 64, -64)
@@ -153,3 +154,6 @@ position = Vector2(3120, 752)
 scale = Vector2(0.5, 0.5)
 
 [node name="CapaRetro" parent="." instance=ExtResource("12_k3unr")]
+
+[node name="StaticBody2D" parent="." instance=ExtResource("13_6jce0")]
+position = Vector2(1088, 1096)

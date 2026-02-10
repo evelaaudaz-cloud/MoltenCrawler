@@ -78,19 +78,15 @@ position = Vector2(2352, 659)
 
 [node name="Comida" parent="." instance=ExtResource("6_x0ka3")]
 position = Vector2(931, -794)
-scale = Vector2(0.25, 0.25)
 
 [node name="Comida2" parent="." instance=ExtResource("6_x0ka3")]
 position = Vector2(2337, 706)
-scale = Vector2(0.25, 0.25)
 
 [node name="Comida3" parent="." instance=ExtResource("6_x0ka3")]
 position = Vector2(-495, 1850)
-scale = Vector2(0.25, 0.25)
 
 [node name="Comida4" parent="." instance=ExtResource("6_x0ka3")]
 position = Vector2(2331, -2012)
-scale = Vector2(0.25, 0.25)
 
 [node name="Linterna" parent="." instance=ExtResource("7_0h7mo")]
 position = Vector2(285, -721)

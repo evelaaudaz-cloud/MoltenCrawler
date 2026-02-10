@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dupcqs68e6273"
+path="res://.godot/imported/Al Bowlly - Heartaches (Instrumental)(MP3_160K).mp3-1b4598e2bd7605ee299ebdcaccffea96.mp3str"
+
+[deps]
+
+source_file="res://Al Bowlly - Heartaches (Instrumental)(MP3_160K).mp3"
+dest_files=["res://.godot/imported/Al Bowlly - Heartaches (Instrumental)(MP3_160K).mp3-1b4598e2bd7605ee299ebdcaccffea96.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

@@ -147,7 +147,6 @@ position = Vector2(-832, -801)
 
 [node name="Comida" parent="." instance=ExtResource("7_stx2y")]
 position = Vector2(931, -794)
-scale = Vector2(0.25, 0.25)
 
 [node name="Linterna" parent="." instance=ExtResource("8_2lj40")]
 position = Vector2(285, -721)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=4 uid="uid://c52csnt0t3px8"]
+[gd_scene load_steps=23 format=4 uid="uid://c52csnt0t3px8"]
 
 [ext_resource type="Script" uid="uid://bte05mpmipyvc" path="res://shelter.gd" id="1_cbhpv"]
 [ext_resource type="PackedScene" uid="uid://bgjyeg2ctrmf3" path="res://hud.tscn" id="2_ka84r"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://cxkr60ljscrn8" path="res://generador.tscn" id="10_b4t0q"]
 [ext_resource type="PackedScene" uid="uid://b57yfvi131kc2" path="res://llave.tscn" id="11_xteqr"]
 [ext_resource type="PackedScene" uid="uid://bo3vk403kqoaa" path="res://capa_retro.tscn" id="12_kfbk2"]
+[ext_resource type="PackedScene" uid="uid://ccna0jmyl7srw" path="res://Machine.tscn" id="13_ka84r"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_d21ai"]
 vertices = PackedVector2Array(64, 64, -64, 64, -64, -64, 64, -64)
@@ -79,7 +80,7 @@ custom_data_layer_0/name = "tipo"
 custom_data_layer_0/type = 4
 sources/7 = SubResource("TileSetAtlasSource_k3unr")
 
-[node name="Nivel2" type="Node2D"]
+[node name="Nivel4" type="Node2D"]
 script = ExtResource("1_cbhpv")
 
 [node name="HUD" parent="." instance=ExtResource("2_ka84r")]
@@ -127,9 +128,6 @@ position = Vector2(-1616, -3024)
 
 [node name="Linterna" parent="." instance=ExtResource("8_x5vpa")]
 position = Vector2(1680, -3032)
-
-[node name="Linterna2" parent="." instance=ExtResource("8_x5vpa")]
-position = Vector2(-1336, 360)
 
 [node name="Linterna3" parent="." instance=ExtResource("8_x5vpa")]
 position = Vector2(-2848, 3160)
@@ -194,3 +192,6 @@ position = Vector2(-2400, -3016)
 scale = Vector2(0.5, 0.5)
 
 [node name="CapaRetro" parent="." instance=ExtResource("12_kfbk2")]
+
+[node name="StaticBody2D" parent="." instance=ExtResource("13_ka84r")]
+position = Vector2(-1352, 480)
