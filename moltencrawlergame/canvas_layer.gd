@@ -11,7 +11,7 @@ var lineas_tutorial = [
 	"[???]: No vayas a entrar en la caldera aún si quieres mantenerte así",
 	"[YEKATERINA]: Mi nombre es Yekaterina, dueña del Navy Park",
 	"[YEKATERINA]: Puedes moverte haciendo click a donde quieras ir, pero aun no",
-	"[YEKATERINA]: Esta mierda esta plagada de esas cosas...",
+	"[YEKATERINA]: Esta fosa de percebes esta plagada de esas cosas...",
 	"[YEKATERINA]: Le temen a la luz, tendrás que enfrentarlos",
 	"[YEKATERINA]: Se a quien estas buscando, y por el momento no puedo ayudarte",
 	"[YEKATERINA]: Necesito que bajes a la caldera y pongas madera en los hornos",
@@ -22,7 +22,7 @@ var lineas_tutorial = [
 	"[YEKATERINA]: Debe haber algo que puedas comer por ahi",
 	"[YEKATERINA]: Por ultimo, no querras olvidar todo lo que haz hecho",
 	"[YEKATERINA]: Aqui en el refugio hay una cama para que descanses",
-	"[YEKATERINA]: Diría alguna bazofia como que 'creo en ti'",
+	"[YEKATERINA]: Diría alguna mariscada como que 'creo en ti'",
 	"[YEKATERINA]: Pero se que te costará una vida",
 	"[YEKATERINA]: Mucha suerte, Molten"
 ]

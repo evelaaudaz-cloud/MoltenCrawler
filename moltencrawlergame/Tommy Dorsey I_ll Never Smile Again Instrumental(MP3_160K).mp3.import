@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://deb8jx336oe43"
+path="res://.godot/imported/Tommy Dorsey I_ll Never Smile Again Instrumental(MP3_160K).mp3-e712c9989de2dbbb74949a16fc41b0fe.mp3str"
+
+[deps]
+
+source_file="res://Tommy Dorsey I_ll Never Smile Again Instrumental(MP3_160K).mp3"
+dest_files=["res://.godot/imported/Tommy Dorsey I_ll Never Smile Again Instrumental(MP3_160K).mp3-e712c9989de2dbbb74949a16fc41b0fe.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

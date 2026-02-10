@@ -1,0 +1,56 @@
+[gd_scene load_steps=7 format=3 uid="uid://ccna0jmyl7srw"]
+
+[ext_resource type="Script" uid="uid://c4ukql3m40nnj" path="res://machine.gd" id="1_2xttj"]
+[ext_resource type="Texture2D" uid="uid://1ht48m0e1mlj" path="res://69 sin título_20260209191819.png" id="1_603am"]
+[ext_resource type="FontFile" uid="uid://ouh1xbtk4yvl" path="res://Bitcount_Single/BitcountSingle-VariableFont_CRSV,ELSH,ELXP,slnt,wght.ttf" id="2_rhjwx"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rhjwx"]
+radius = 190.83
+
+[sub_resource type="Gradient" id="Gradient_a5tj2"]
+offsets = PackedFloat32Array(0.117409, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_2xttj"]
+gradient = SubResource("Gradient_a5tj2")
+width = 150
+fill = 1
+fill_from = Vector2(0.514188, 0.547009)
+fill_to = Vector2(0.340969, 0.15812)
+
+[node name="StaticBody2D" type="StaticBody2D"]
+script = ExtResource("1_2xttj")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -72)
+scale = Vector2(0.09, 0.09)
+texture = ExtResource("1_603am")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_rhjwx")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_left = -40.0
+offset_top = 56.0
+offset_right = 40.0
+offset_bottom = 112.0
+theme_override_colors/font_color = Color(0.986186, 0, 0.311633, 1)
+theme_override_fonts/font = ExtResource("2_rhjwx")
+theme_override_font_sizes/font_size = 40
+text = "[E]"
+horizontal_alignment = 1
+
+[node name="TimerCooldown" type="Timer" parent="."]
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(0, 32)
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(-17, -23)
+scale = Vector2(4.42583, 9.80578)
+color = Color(0.917647, 0.247059, 0.180392, 1)
+texture = SubResource("GradientTexture2D_2xttj")

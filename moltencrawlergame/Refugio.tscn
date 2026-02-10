@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=4 uid="uid://bvm0xy4unn6fm"]
+[gd_scene load_steps=30 format=4 uid="uid://bvm0xy4unn6fm"]
 
 [ext_resource type="Script" uid="uid://bte05mpmipyvc" path="res://shelter.gd" id="1_kb7wc"]
 [ext_resource type="PackedScene" uid="uid://bgjyeg2ctrmf3" path="res://hud.tscn" id="2_5fed4"]
@@ -17,6 +17,7 @@
 [ext_resource type="FontFile" uid="uid://cmfsrjke3eyf" path="res://Bitcount_Single/static/BitcountSingle_Roman-Regular.ttf" id="14_5t8j0"]
 [ext_resource type="FontFile" uid="uid://bb34nm0lmp02r" path="res://Bitcount_Single/static/BitcountSingle_Cursive-Regular.ttf" id="15_vbf6b"]
 [ext_resource type="PackedScene" uid="uid://bo3vk403kqoaa" path="res://capa_retro.tscn" id="17_5t8j0"]
+[ext_resource type="AudioStream" uid="uid://deb8jx336oe43" path="res://Tommy Dorsey I_ll Never Smile Again Instrumental(MP3_160K).mp3" id="18_vbf6b"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_d21ai"]
 vertices = PackedVector2Array(64, 64, -64, 64, -64, -64, 64, -64)
@@ -232,10 +233,10 @@ text = "hi"
 
 [node name="IndicadorEspacio" type="RichTextLabel" parent="CanvasLayer/TextureRect"]
 layout_mode = 0
-offset_left = 472.0
-offset_top = -240.0
-offset_right = 776.0
-offset_bottom = -160.0
+offset_left = 368.0
+offset_top = -288.0
+offset_right = 920.0
+offset_bottom = -56.0
 mouse_filter = 2
 theme_override_colors/default_color = Color(0.890196, 0, 0.698039, 1)
 theme_override_fonts/normal_font = ExtResource("9_4j7fr")
@@ -248,7 +249,9 @@ theme_override_font_sizes/italics_font_size = 40
 theme_override_font_sizes/mono_font_size = 40
 theme_override_font_sizes/normal_font_size = 60
 theme_override_font_sizes/bold_font_size = 40
-text = "[SPACE]"
+text = "[PRESS SPACE]
+[PRESS SPACE]
+[PRESS SPACE]"
 horizontal_alignment = 1
 
 [node name="TimerEscritura" type="Timer" parent="CanvasLayer"]
@@ -270,3 +273,8 @@ theme_override_colors/font_color = Color(0.890196, 0, 0.698039, 1)
 theme_override_fonts/font = ExtResource("9_4j7fr")
 theme_override_font_sizes/font_size = 35
 text = "HOLD ESC TO END GAME"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("18_vbf6b")
+volume_db = -11.473
+autoplay = true
