@@ -1,11 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://ccna0jmyl7srw"]
+[gd_scene load_steps=8 format=3 uid="uid://ccna0jmyl7srw"]
 
 [ext_resource type="Script" uid="uid://c4ukql3m40nnj" path="res://machine.gd" id="1_2xttj"]
 [ext_resource type="Texture2D" uid="uid://onf0r0vp3gdj" path="res://71 sin título_20260209202832.png" id="2_2xttj"]
 [ext_resource type="FontFile" uid="uid://ouh1xbtk4yvl" path="res://Bitcount_Single/BitcountSingle-VariableFont_CRSV,ELSH,ELXP,slnt,wght.ttf" id="2_rhjwx"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rhjwx"]
-radius = 190.83
+radius = 112.0
 
 [sub_resource type="Gradient" id="Gradient_a5tj2"]
 offsets = PackedFloat32Array(0.117409, 1)
@@ -18,26 +18,30 @@ fill = 1
 fill_from = Vector2(0.514188, 0.547009)
 fill_to = Vector2(0.340969, 0.15812)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2xttj"]
+size = Vector2(80, 80)
+
 [node name="StaticBody2D" type="StaticBody2D"]
 script = ExtResource("1_2xttj")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -72)
-scale = Vector2(2, 2)
+scale = Vector2(0.9, 0.9)
 texture = ExtResource("2_2xttj")
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -24)
 shape = SubResource("CircleShape2D_rhjwx")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Label" type="Label" parent="CanvasLayer"]
-offset_left = 632.0
-offset_top = 384.0
-offset_right = 712.0
-offset_bottom = 440.0
+offset_left = 608.0
+offset_top = 456.0
+offset_right = 688.0
+offset_bottom = 512.0
 theme_override_colors/font_color = Color(0.986186, 0, 0.311633, 1)
 theme_override_fonts/font = ExtResource("2_rhjwx")
 theme_override_font_sizes/font_size = 40
@@ -47,13 +51,18 @@ horizontal_alignment = 1
 [node name="TimerCooldown" type="Timer" parent="."]
 
 [node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(0, 32)
+position = Vector2(0, -24)
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 position = Vector2(-17, -23)
 scale = Vector2(4.42583, 9.80578)
 color = Color(0.917647, 0.247059, 0.180392, 1)
 texture = SubResource("GradientTexture2D_2xttj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -72)
+shape = SubResource("RectangleShape2D_2xttj")
+one_way_collision = true
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
