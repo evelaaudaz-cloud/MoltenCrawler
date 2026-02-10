@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://ccna0jmyl7srw"]
 
 [ext_resource type="Script" uid="uid://c4ukql3m40nnj" path="res://machine.gd" id="1_2xttj"]
-[ext_resource type="Texture2D" uid="uid://1ht48m0e1mlj" path="res://69 sin título_20260209191819.png" id="1_603am"]
+[ext_resource type="Texture2D" uid="uid://onf0r0vp3gdj" path="res://71 sin título_20260209202832.png" id="2_2xttj"]
 [ext_resource type="FontFile" uid="uid://ouh1xbtk4yvl" path="res://Bitcount_Single/BitcountSingle-VariableFont_CRSV,ELSH,ELXP,slnt,wght.ttf" id="2_rhjwx"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rhjwx"]
@@ -23,8 +23,8 @@ script = ExtResource("1_2xttj")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -72)
-scale = Vector2(0.09, 0.09)
-texture = ExtResource("1_603am")
+scale = Vector2(2, 2)
+texture = ExtResource("2_2xttj")
 
 [node name="Area2D" type="Area2D" parent="."]
 
@@ -34,10 +34,10 @@ shape = SubResource("CircleShape2D_rhjwx")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Label" type="Label" parent="CanvasLayer"]
-offset_left = -40.0
-offset_top = 56.0
-offset_right = 40.0
-offset_bottom = 112.0
+offset_left = 632.0
+offset_top = 384.0
+offset_right = 712.0
+offset_bottom = 440.0
 theme_override_colors/font_color = Color(0.986186, 0, 0.311633, 1)
 theme_override_fonts/font = ExtResource("2_rhjwx")
 theme_override_font_sizes/font_size = 40
@@ -54,3 +54,6 @@ position = Vector2(-17, -23)
 scale = Vector2(4.42583, 9.80578)
 color = Color(0.917647, 0.247059, 0.180392, 1)
 texture = SubResource("GradientTexture2D_2xttj")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

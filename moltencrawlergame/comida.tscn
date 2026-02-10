@@ -8,6 +8,7 @@ radius = 118.127
 
 [node name="Comida" type="Area2D"]
 position = Vector2(7, -1)
+scale = Vector2(0.25, 0.25)
 script = ExtResource("1_7ydfo")
 
 [node name="TextureRect" type="TextureRect" parent="."]
