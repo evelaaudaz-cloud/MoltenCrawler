@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://cohwyoq14rauu"]
+[gd_scene load_steps=5 format=3 uid="uid://cohwyoq14rauu"]
 
 [ext_resource type="FontFile" uid="uid://ouh1xbtk4yvl" path="res://Bitcount_Single/BitcountSingle-VariableFont_CRSV,ELSH,ELXP,slnt,wght.ttf" id="1_40baj"]
 [ext_resource type="Script" uid="uid://cvclsixijupgi" path="res://GameOver.gd" id="1_a1htc"]
 [ext_resource type="PackedScene" uid="uid://bo3vk403kqoaa" path="res://capa_retro.tscn" id="3_eksk4"]
+[ext_resource type="AudioStream" uid="uid://dc0lktxfim8xf" path="res://Fallout Shelter _ Quest Failure ♪ [Sound Effect](MP3_160K).mp3" id="4_xl4ts"]
 
 [node name="GameOver" type="CanvasLayer"]
 script = ExtResource("1_a1htc")
@@ -48,6 +49,11 @@ flat = true
 alignment = 0
 
 [node name="CapaRetro" parent="." instance=ExtResource("3_eksk4")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_xl4ts")
+volume_db = 24.0
+autoplay = true
 
 [connection signal="pressed" from="VBoxContainer/BotonReintentar" to="." method="_on_boton_reintentar_pressed"]
 [connection signal="pressed" from="VBoxContainer/BotonMenu" to="." method="_on_boton_menu_pressed"]

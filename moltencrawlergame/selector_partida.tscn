@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://deh8vkab6gc1b"]
+[gd_scene load_steps=5 format=3 uid="uid://deh8vkab6gc1b"]
 
 [ext_resource type="Script" uid="uid://difukaq8jvyxa" path="res://selector_partida.gd" id="1_ttucw"]
 [ext_resource type="FontFile" uid="uid://ouh1xbtk4yvl" path="res://Bitcount_Single/BitcountSingle-VariableFont_CRSV,ELSH,ELXP,slnt,wght.ttf" id="2_fwt0w"]
 [ext_resource type="PackedScene" uid="uid://bo3vk403kqoaa" path="res://capa_retro.tscn" id="3_fwt0w"]
+[ext_resource type="AudioStream" uid="uid://dupcqs68e6273" path="res://Al Bowlly - Heartaches (Instrumental)(MP3_160K).mp3" id="4_f88c5"]
 
 [node name="SelectorPartida" type="Control"]
 layout_mode = 3
@@ -39,6 +40,10 @@ text = "NEW GAME"
 flat = true
 
 [node name="CapaRetro" parent="." instance=ExtResource("3_fwt0w")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_f88c5")
+autoplay = true
 
 [connection signal="pressed" from="VBoxContainer/Continuar" to="." method="_on_continuar_pressed"]
 [connection signal="pressed" from="VBoxContainer/Nuevo" to="." method="_on_nuevo_pressed"]
