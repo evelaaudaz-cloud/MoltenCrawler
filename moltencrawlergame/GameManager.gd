@@ -1,10 +1,9 @@
-# GameManager.gd (Autoload)
 extends Node
 
 var nivel_actual = 1
 var generadores_activados = 0
 var generadores_totales_en_nivel = 0
-var escena_donde_murio : String = "" # Movida arriba con las demás
+var escena_donde_murio : String = "" 
 
 func registrar_generador():
 	generadores_totales_en_nivel += 1
@@ -26,13 +25,11 @@ func reset_progreso():
 
 func completar_nivel():
 	nivel_actual += 1
-	reset_progreso() # Usamos tu función de reset para limpiar todo
+	reset_progreso()
 	
 	if get_node_or_null("/root/Transicion"):
 		Transicion.jugar_transicion_salida()
 	
-	# Nota: Si el Autoload de Transicion cambia la escena, 
-	# quizás quieras quitar el change_scene de aquí para que no choquen.
 	get_tree().change_scene_to_file("res://Refugio.tscn")
 
 func jugador_murio(ruta_escena_actual):

@@ -8,12 +8,10 @@ func _ready():
 	mouse_exited.connect(_on_mouse_exited)
 	body_entered.connect(_on_body_entered)
 	
-	# Usamos int() para que el texto inicial sea "Planta 1" y no "Planta 1.0"
 	label.text = "Bajar a la Planta " + str(int(GameManager.nivel_actual))
-	label.hide() # Empezamos con el label oculto
+	label.hide() 
 
 func _on_mouse_entered():
-	# Aplicamos int() aquí también para el mensaje al pasar el mouse
 	label.text = "Entrar al Nivel " + str(int(GameManager.nivel_actual))
 	label.show()
 
@@ -21,22 +19,18 @@ func _on_mouse_exited():
 	label.hide()
 
 func _on_body_entered(body):
-	# Usamos is_in_group o el nombre exacto como ya tenías
 	if body.name == "Molten" or body.is_in_group("jugador"):
 		body.set_physics_process(false)
 		
-		# --- LA CORRECCIÓN CLAVE ---
-		# Convertimos a int() antes de pasarlo a string para quitar los decimales del JSON
 		var nivel_id = int(GameManager.nivel_actual)
 		var ruta_nivel = "res://Niveles/Nivel" + str(nivel_id) + ".tscn"
 		
-		print("Intentando cargar: ", ruta_nivel) # Debug para verificar en consola
+		print("Intentando cargar: ", ruta_nivel)
 		
 		if anim_player.has_animation("fade_out"):
 			anim_player.play("fade_out")
 			await anim_player.animation_finished
 		
-		# Cambiamos al nivel correspondiente
 		var error = get_tree().change_scene_to_file(ruta_nivel)
 		
 		if error != OK:

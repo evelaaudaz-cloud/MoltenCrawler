@@ -1,7 +1,7 @@
 extends StaticBody2D
 
-@export var escena_comida = preload("res://comida.tscn") # Arrastra aquí tu escena de comida
-@export var tiempo_espera = 5.0 # Segundos entre bocadillos
+@export var escena_comida = preload("res://comida.tscn") 
+@export var tiempo_espera = 5.0 
 
 @onready var label_e = $CanvasLayer/Label
 @onready var timer = $TimerCooldown
@@ -16,7 +16,6 @@ func _ready():
 	timer.one_shot = true
 
 func _process(_delta):
-	# Si presionamos E, estamos cerca y la máquina no está en cooldown
 	if jugador_cerca and disponible and Input.is_action_just_pressed("interactuar"):
 		soltar_comida()
 
@@ -24,12 +23,10 @@ func soltar_comida():
 	disponible = false
 	label_e.text = "Cargando..."
 	
-	# Instanciamos tu bocadillo
 	var comida = escena_comida.instantiate()
 	get_parent().add_child(comida)
 	comida.global_position = marker.global_position
 	
-	# Iniciar cooldown
 	timer.start()
 
 func _on_timer_cooldown_timeout():
@@ -39,9 +36,8 @@ func _on_timer_cooldown_timeout():
 	else:
 		label_e.hide()
 
-# --- DETECCIÓN DE PROXIMIDAD ---
 func _on_area_2d_body_entered(body):
-	if body.name == "Molten": # O el nombre de tu nodo jugador
+	if body.name == "Molten": 
 		jugador_cerca = true
 		label_e.show()
 		if disponible:

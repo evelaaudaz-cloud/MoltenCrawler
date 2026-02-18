@@ -34,19 +34,17 @@ var escribiendo = false
 func _ready():
 	glitch.play("glitch")
 	glotch.play("idle")
-	# Solo mostramos el tutorial si es una partida nueva
-	# (Puedes usar una variable en el GameManager para esto)
 	if GameManager.nivel_actual == 1:
 		iniciar_dialogo()
 	else:
-		self.hide() # Ocultar si ya es un jugador veterano
+		self.hide() 
 
 func iniciar_dialogo():
 	self.show()
 	mostrar_linea()
 
 func _input(event):
-	if self.visible and event.is_action_pressed("ui_accept"): # Tecla Espacio
+	if self.visible and event.is_action_pressed("ui_accept"): 
 		if escribiendo:
 			saltar_animacion()
 		else:
@@ -54,7 +52,7 @@ func _input(event):
 
 func mostrar_linea():
 	if indice < lineas_tutorial.size():
-		escribiendo = true # Escondemos el "Presiona Espacio" mientras escribe
+		escribiendo = true 
 		texto_label.text = lineas_tutorial[indice]
 		texto_label.visible_characters = 0
 		timer.start()
@@ -70,7 +68,7 @@ func _on_timer_escritura_timeout():
 func completar_linea():
 	escribiendo = false
 	timer.stop()
-	indicador.show() # Mostramos que ya puede pasar a la siguiente
+	indicador.show() 
 
 func saltar_animacion():
 	texto_label.visible_characters = texto_label.text.length()
@@ -81,8 +79,7 @@ func proxima_linea():
 	mostrar_linea()
 
 func finalizar_dialogo():
-	# Hacemos un pequeño fade out o simplemente ocultamos
 	var tween = create_tween()
-	tween.tween_property(self, "offset:y", 200, 0.5) # Se desliza hacia abajo
+	tween.tween_property(self, "offset:y", 200, 0.5) 
 	await tween.finished
 	self.hide()

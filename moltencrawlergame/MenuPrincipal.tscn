@@ -102,3 +102,13 @@ libraries = {
 movie_quit_on_finish = true
 
 [node name="CapaRetro" parent="." instance=ExtResource("4_pi62y")]
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 664.0
+offset_right = 406.0
+offset_bottom = 687.0
+theme_override_fonts/font = ExtResource("2_5dpk2")
+theme_override_font_sizes/font_size = 30
+text = "Bad Idea Developing 2026 -- All rights reserved"
