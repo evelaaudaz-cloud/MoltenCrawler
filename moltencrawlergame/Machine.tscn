@@ -64,5 +64,8 @@ position = Vector2(0, -72)
 shape = SubResource("RectangleShape2D_2xttj")
 one_way_collision = true
 
+[node name="TouchScreenButton" type="TouchScreenButton" parent="."]
+position = Vector2(0, -56)
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

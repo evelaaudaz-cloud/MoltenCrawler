@@ -106,7 +106,7 @@ color = Color(0.0643933, 0.000962321, 0.0372444, 1)
 position = Vector2(54, 71)
 
 [node name="Enemigo" parent="." instance=ExtResource("6_s8guy")]
-position = Vector2(-4832, -3168)
+position = Vector2(-1408, -2656)
 
 [node name="Enemigo4" parent="." instance=ExtResource("6_s8guy")]
 position = Vector2(184, 1712)
