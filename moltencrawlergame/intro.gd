@@ -1,11 +1,9 @@
 extends Control
 
 func _ready():
-	# Cuando el vídeo termine solo, vamos al menú
 	$VideoStreamPlayer.finished.connect(_al_terminar_video)
 
 func _input(event):
-	# Si presiona Escape o cualquier tecla de omitir
 	if event.is_action_pressed("click"): 
 		_al_terminar_video()
 

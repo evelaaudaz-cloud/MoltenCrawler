@@ -2,7 +2,6 @@ extends Node
 
 const SAVE_PATH = "user://molten_save.dat"
 
-# Datos iniciales
 var datos_guardados = {
 	"escena_actual": "res://Refugio.tscn",
 	"nivel_desbloqueado": 1,
