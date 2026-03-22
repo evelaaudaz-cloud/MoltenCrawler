@@ -52,7 +52,7 @@ alignment = 0
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_xl4ts")
-volume_db = 24.0
+volume_db = 18.078
 autoplay = true
 
 [connection signal="pressed" from="VBoxContainer/BotonReintentar" to="." method="_on_boton_reintentar_pressed"]

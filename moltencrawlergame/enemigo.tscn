@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://djf356o2m7oyf" path="res://enemigo.gd" id="1_a5tj2"]
 [ext_resource type="Texture2D" uid="uid://dceiih72rta85" path="res://fleshbag.png" id="2_moxti"]
-[ext_resource type="AudioStream" uid="uid://bdp8gge18eain" path="res://enemy.mp3" id="3_moxti"]
+[ext_resource type="AudioStream" uid="uid://bc6xx8bwophn4" path="res://Freak.mp3" id="3_moxti"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bnx68"]
 radius = 31.4006
