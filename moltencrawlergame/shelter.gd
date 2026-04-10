@@ -1,8 +1,14 @@
 extends Node2D
 
-func _ready():
-	$Molten.salud_cambiada.connect(_on_molten_salud_cambiada)
+# Esto creará una casilla en el panel de la derecha (Inspector)
+@export var jugador: Node2D 
 
+func _ready():
+	# Te aseguras de que el jugador exista antes de conectar
+	if jugador:
+		jugador.salud_cambiada.connect(_on_molten_salud_cambiada)
+	else:
+		print("¡Se te olvidó arrastrar a Molten al inspector!")
 func _on_molten_salud_cambiada(nueva_salud):
 	$HUD/ProgressBar.value = nueva_salud
 

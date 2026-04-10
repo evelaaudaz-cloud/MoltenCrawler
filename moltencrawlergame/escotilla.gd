@@ -22,10 +22,11 @@ func _on_body_entered(body):
 	if body.name == "Molten" or body.is_in_group("jugador"):
 		body.set_physics_process(false)
 		
-		var nivel_id = int(GameManager.nivel_actual)
-		var ruta_nivel = "res://Niveles/Nivel" + str(nivel_id) + ".tscn"
+		# ¡CAMBIO CLAVE AQUÍ!
+		# Ya no buscamos Nivel1, Nivel2. Siempre vamos al mapa procedural.
+		var ruta_nivel = "res://NivelProcedural.tscn" 
 		
-		print("Intentando cargar: ", ruta_nivel)
+		print("Generando nuevo nivel procedural...")
 		
 		if anim_player.has_animation("fade_out"):
 			anim_player.play("fade_out")
@@ -34,4 +35,4 @@ func _on_body_entered(body):
 		var error = get_tree().change_scene_to_file(ruta_nivel)
 		
 		if error != OK:
-			print("Error: No se encontró la escena en ", ruta_nivel)
+			print("Error: No se encontró la escena maestra en ", ruta_nivel)

@@ -11,7 +11,7 @@ uniform float warp_amount : hint_range(0, 5) = 0.2; // Curvatura de pantalla vie
 uniform float vignette_amount : hint_range(0, 2) = 0.5; // Oscuridad en las esquinas
 uniform float aberration_amount : hint_range(0, 10) = 0.5; // Separación de colores (Glitch)
 uniform bool noise_enabled = true; // Ruido de estática
-uniform float noise_strength : hint_range(0, 1) = 0.05; 
+uniform float noise_strength : hint_range(0, 1) = 0.05;
 
 // Función para curvar las coordenadas UV
 vec2 curve(vec2 uv) {
@@ -30,7 +30,7 @@ float random(vec2 uv) {
 void fragment() {
 	// 1. Aplicamos la curvatura (Fish eye)
 	vec2 uv = curve(SCREEN_UV);
-	
+
 	// Si la curvatura se sale de la pantalla, pintamos negro (bordes del monitor)
 	if (uv.x < 0.0 || uv.x > 1.0 || uv.y < 0.0 || uv.y > 1.0) {
 		COLOR = vec4(0.0, 0.0, 0.0, 1.0);
@@ -40,18 +40,18 @@ void fragment() {
 		float r = texture(screen_texture, uv + vec2(aberration_amount * 0.005, 0.0)).r;
 		float g = texture(screen_texture, uv).g;
 		float b = texture(screen_texture, uv - vec2(aberration_amount * 0.005, 0.0)).b;
-		
+
 		vec3 color = vec3(r, g, b);
-		
+
 		// 3. Scanlines (Líneas horizontales)
 		float scanline = sin(uv.y * scanline_count * 3.14159 * 2.0);
 		// Hacemos que las líneas oscuras no sean negro total, sino que bajen el brillo
 		color -= scanline * scanline_opacity * 0.5;
-		
+
 		// 4. Viñeta (Esquinas oscuras)
 		float dist = distance(uv, vec2(0.5));
 		color *= (1.0 - dist * vignette_amount);
-		
+
 		// 5. Ruido (Estática suave)
 		if (noise_enabled) {
 			float noise = random(uv + vec2(TIME * 10.0, TIME * 50.0));

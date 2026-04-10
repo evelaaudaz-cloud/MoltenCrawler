@@ -5,10 +5,10 @@
 [ext_resource type="AudioStream" uid="uid://bc6xx8bwophn4" path="res://Freak.mp3" id="3_moxti"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bnx68"]
-radius = 31.4006
+radius = 21.0238
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_a5tj2"]
-radius = 54.0093
+radius = 41.1096
 
 [sub_resource type="Gradient" id="Gradient_a5tj2"]
 offsets = PackedFloat32Array(0.117409, 1)
@@ -60,6 +60,7 @@ _data = {
 }
 
 [node name="Enemigo" type="CharacterBody2D"]
+z_index = 10
 script = ExtResource("1_a5tj2")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

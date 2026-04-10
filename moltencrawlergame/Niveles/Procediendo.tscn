@@ -1,0 +1,101 @@
+[gd_scene load_steps=15 format=4 uid="uid://bos550q8qp0nw"]
+
+[ext_resource type="Script" uid="uid://bte05mpmipyvc" path="res://shelter.gd" id="1_juim4"]
+[ext_resource type="PackedScene" uid="uid://bgjyeg2ctrmf3" path="res://hud.tscn" id="2_kqn4a"]
+[ext_resource type="Texture2D" uid="uid://dprsu062gprcb" path="res://tileset_boceto.png" id="3_6jd5d"]
+[ext_resource type="Texture2D" uid="uid://b7vqq4go8hvng" path="res://tileagua.png" id="4_hifdg"]
+[ext_resource type="PackedScene" uid="uid://b61d74wsn1x5d" path="res://linterna.tscn" id="8_1s31y"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_d21ai"]
+vertices = PackedVector2Array(64, 64, -64, 64, -64, -64, 64, -64)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)])
+agent_radius = 0.0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0hol4"]
+texture = ExtResource("3_6jd5d")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+1:0/0 = 0
+1:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_d21ai")
+
+[sub_resource type="TileSet" id="TileSet_q6r6c"]
+tile_size = Vector2i(128, 128)
+physics_layer_0/collision_layer = 1
+navigation_layer_0/layers = 1
+sources/1 = SubResource("TileSetAtlasSource_0hol4")
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_c0mop"]
+vertices = PackedVector2Array(128, 128, -128, 128, -128, -128, 128, -128)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-128, -128, 128, -128, 128, 128, -128, 128)])
+agent_radius = 0.0
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_k3unr"]
+vertices = PackedVector2Array(128, 128, -128, 128, -128, -128, 128, -128)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-128, -128, 128, -128, 128, 128, -128, 128)])
+agent_radius = 0.0
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_0n1vg"]
+vertices = PackedVector2Array(128, 128, -128, 128, -128, -128, 128, -128)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-128, -128, 128, -128, 128, 128, -128, 128)])
+agent_radius = 0.0
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_6jce0"]
+vertices = PackedVector2Array(128, 128, -128, 128, -128, -128, 128, -128)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-128, -128, 128, -128, 128, 128, -128, 128)])
+agent_radius = 0.0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k3unr"]
+texture = ExtResource("4_hifdg")
+texture_region_size = Vector2i(256, 256)
+0:0/0 = 0
+0:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_c0mop")
+1:0/0 = 0
+1:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_0n1vg")
+1:0/0/custom_data_0 = "agua"
+0:1/0 = 0
+0:1/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_k3unr")
+0:1/0/custom_data_0 = "agua"
+1:1/0 = 0
+1:1/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_6jce0")
+1:1/0/custom_data_0 = "agua"
+
+[sub_resource type="TileSet" id="TileSet_6jce0"]
+tile_size = Vector2i(256, 256)
+navigation_layer_0/layers = 1
+custom_data_layer_0/name = "tipo"
+custom_data_layer_0/type = 4
+sources/7 = SubResource("TileSetAtlasSource_k3unr")
+
+[node name="Nivel2" type="Node2D"]
+script = ExtResource("1_juim4")
+
+[node name="HUD" parent="." instance=ExtResource("2_kqn4a")]
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+position = Vector2(52, 68)
+scale = Vector2(0.5, 0.5)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="NavigationRegion2D"]
+position = Vector2(-104, -136)
+scale = Vector2(2, 2)
+tile_map_data = PackedByteArray("AAD//wAAAQABAAAAAAAAAAAAAQABAAAAAAD/////AQABAAAAAAAAAP//AQABAAAAAAABAP//AQABAAAAAAABAAAAAQABAAAAAAABAAEAAQABAAAAAAAAAAEAAQABAAAAAAD//wEAAQABAAAAAAAAAP7/AQABAAAAAAACAAAAAQABAAAAAAD+/wAAAQABAAAAAAAAAAIAAQABAAAAAAA=")
+tile_set = SubResource("TileSet_q6r6c")
+
+[node name="TileMapLayer2" type="TileMapLayer" parent="NavigationRegion2D"]
+position = Vector2(-104, -136)
+tile_set = SubResource("TileSet_6jce0")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.0643933, 0.000962321, 0.0372444, 1)
+
+[node name="Marker2D" type="Marker2D" parent="." groups=["puntos_spawn"]]
+position = Vector2(56, 68)
+
+[node name="Linterna" parent="." instance=ExtResource("8_1s31y")]
+position = Vector2(56, 68)

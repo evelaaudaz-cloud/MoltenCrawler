@@ -1,0 +1,32 @@
+[gd_scene load_steps=11 format=3 uid="uid://dqdkbc2sax8q0"]
+
+[ext_resource type="Script" uid="uid://n7pngbsimpv5" path="res://nivel_procedural.gd" id="1_0a28m"]
+[ext_resource type="PackedScene" uid="uid://bos550q8qp0nw" path="res://Niveles/Procediendo.tscn" id="2_5ff6j"]
+[ext_resource type="PackedScene" uid="uid://dxqfi7rpiur82" path="res://Niveles/salab.tscn" id="3_sr1gq"]
+[ext_resource type="PackedScene" uid="uid://bbv17n1yngf33" path="res://Niveles/generador.tscn" id="4_sr1gq"]
+[ext_resource type="PackedScene" uid="uid://bo3vk403kqoaa" path="res://capa_retro.tscn" id="5_0a28m"]
+[ext_resource type="PackedScene" uid="uid://b57yfvi131kc2" path="res://llave.tscn" id="5_5u2tt"]
+[ext_resource type="PackedScene" uid="uid://c4l7pypp1hq50" path="res://molten.tscn" id="6_5ff6j"]
+[ext_resource type="PackedScene" uid="uid://dfk8dudhtbxwc" path="res://Niveles/salamuro.tscn" id="6_7h1y4"]
+[ext_resource type="PackedScene" uid="uid://bkd5b1xtheqdn" path="res://enemigo.tscn" id="7_5u2tt"]
+[ext_resource type="PackedScene" uid="uid://bgjyeg2ctrmf3" path="res://hud.tscn" id="10_qpix1"]
+
+[node name="NivelProcedural" type="Node2D"]
+script = ExtResource("1_0a28m")
+salas_normales = Array[PackedScene]([ExtResource("2_5ff6j"), ExtResource("3_sr1gq")])
+salas_generador = Array[PackedScene]([ExtResource("4_sr1gq")])
+sala_muro = ExtResource("6_7h1y4")
+tronco_escena = ExtResource("5_5u2tt")
+enemigo_escena = ExtResource("7_5u2tt")
+ancho_sala = 640.0
+alto_sala = 640.0
+
+[node name="Molten" parent="." instance=ExtResource("6_5ff6j")]
+position = Vector2(0, 0)
+
+[node name="CapaRetro" parent="." instance=ExtResource("5_0a28m")]
+
+[node name="HUD" parent="." instance=ExtResource("10_qpix1")]
+layer = 20
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
