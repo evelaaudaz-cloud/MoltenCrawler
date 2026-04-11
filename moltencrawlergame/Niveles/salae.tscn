@@ -1,9 +1,9 @@
-[gd_scene load_steps=14 format=4 uid="uid://di3xj20fdl42y"]
+[gd_scene load_steps=14 format=4 uid="uid://grojf8nsv3ql"]
 
-[ext_resource type="Script" uid="uid://bte05mpmipyvc" path="res://shelter.gd" id="1_sorye"]
-[ext_resource type="PackedScene" uid="uid://bgjyeg2ctrmf3" path="res://hud.tscn" id="2_h11dm"]
-[ext_resource type="Texture2D" uid="uid://dprsu062gprcb" path="res://tileset_boceto.png" id="3_yrkhk"]
-[ext_resource type="Texture2D" uid="uid://b7vqq4go8hvng" path="res://tileagua.png" id="4_jk6jj"]
+[ext_resource type="Script" uid="uid://bte05mpmipyvc" path="res://shelter.gd" id="1_ggnoi"]
+[ext_resource type="PackedScene" uid="uid://bgjyeg2ctrmf3" path="res://hud.tscn" id="2_w6k2f"]
+[ext_resource type="Texture2D" uid="uid://dprsu062gprcb" path="res://tileset_boceto.png" id="3_xawnp"]
+[ext_resource type="Texture2D" uid="uid://b7vqq4go8hvng" path="res://tileagua.png" id="4_p46he"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_d21ai"]
 vertices = PackedVector2Array(64, 64, -64, 64, -64, -64, 64, -64)
@@ -12,7 +12,7 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(-64, -64, 64, -64, 64, 
 agent_radius = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0hol4"]
-texture = ExtResource("3_yrkhk")
+texture = ExtResource("3_xawnp")
 texture_region_size = Vector2i(128, 128)
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
@@ -50,7 +50,7 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(-128, -128, 128, -128, 
 agent_radius = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k3unr"]
-texture = ExtResource("4_jk6jj")
+texture = ExtResource("4_p46he")
 texture_region_size = Vector2i(256, 256)
 0:0/0 = 0
 0:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_c0mop")
@@ -66,15 +66,15 @@ texture_region_size = Vector2i(256, 256)
 
 [sub_resource type="TileSet" id="TileSet_6jce0"]
 tile_size = Vector2i(256, 256)
-navigation_layer_0/layers = 1
+navigation_layer_0/layers = 30465
 custom_data_layer_0/name = "tipo"
 custom_data_layer_0/type = 4
 sources/7 = SubResource("TileSetAtlasSource_k3unr")
 
 [node name="Nivel2" type="Node2D"]
-script = ExtResource("1_sorye")
+script = ExtResource("1_ggnoi")
 
-[node name="HUD" parent="." instance=ExtResource("2_h11dm")]
+[node name="HUD" parent="." instance=ExtResource("2_w6k2f")]
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 position = Vector2(52, 68)
@@ -83,7 +83,7 @@ scale = Vector2(0.5, 0.5)
 [node name="TileMapLayer" type="TileMapLayer" parent="NavigationRegion2D"]
 position = Vector2(-104, -136)
 scale = Vector2(2, 2)
-tile_map_data = PackedByteArray("AAAAAAAAAQABAAAAAAAAAP//AQABAAAAAAABAAAAAQABAAAAAAAAAAEAAQABAAAAAAAAAP7/AQABAAAAAAACAAAAAQABAAAAAAAAAAIAAQABAAAAAAA=")
+tile_map_data = PackedByteArray("AAAAAAIAAQABAAAAAAAAAP7/AQABAAAAAAD+/wAAAQABAAAAAAACAAAAAQABAAAAAAD///7/AQABAAAAAAABAP7/AQABAAAAAAACAP//AQABAAAAAAACAAEAAQABAAAAAAACAAIAAQABAAAAAAD+/wIAAQABAAAAAAD//wIAAQABAAAAAAABAAIAAQABAAAAAAD+/wEAAQABAAAAAAAAAAAAAQABAAAAAAD+////AQABAAAAAAD+//7/AQABAAAAAAACAP7/AQABAAAAAAAAAP//AQABAAAAAAAAAAEAAQABAAAAAAA=")
 tile_set = SubResource("TileSet_q6r6c")
 
 [node name="TileMapLayer2" type="TileMapLayer" parent="NavigationRegion2D"]
@@ -91,7 +91,5 @@ position = Vector2(-104, -136)
 tile_set = SubResource("TileSet_6jce0")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
 color = Color(0.0643933, 0.000962321, 0.0372444, 1)
-
-[node name="Marker2D" type="Marker2D" parent="." groups=["puntos_spawn"]]
-position = Vector2(64, 64)

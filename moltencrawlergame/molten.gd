@@ -3,6 +3,7 @@ extends CharacterBody2D
 @export var speed = 300.0
 @export var velocidad_agua = 150.0
 @export var daño_agua_por_segundo = 3.0
+var esta_parpadeando = false
 
 @onready var nav_agent = $NavigationAgent2D
 @onready var sprite = $Sprite2D
@@ -13,8 +14,6 @@ var salud_actual = 100
 var llaves = 0
 var esta_caminando = false
 var esta_en_agua = false
-
-@export var capa_agua : TileMapLayer
 
 signal salud_cambiada(nueva_salud)
 
@@ -42,7 +41,7 @@ func _physics_process(delta):
 			esta_caminando = false
 			anim_player.play("idle")
 			velocity = Vector2.ZERO
-			$SonidoPasos.stop() 
+			if has_node("SonidoPasos"): $SonidoPasos.stop() 
 		return
 
 	var next_path_pos = nav_agent.get_next_path_position()
@@ -60,49 +59,65 @@ func _physics_process(delta):
 	velocity = direction * velocidad_actual
 	motion_mode = CharacterBody2D.MOTION_MODE_FLOATING
 	
-	if not $SonidoPasos.playing:
+	if has_node("SonidoPasos") and not $SonidoPasos.playing:
 		$SonidoPasos.play()
 	move_and_slide()
 
 func detectar_suelo():
-	if not capa_agua:
-		capa_agua = get_tree().current_scene.find_child("TileMapLayer2", true, false) as TileMapLayer
-	if not capa_agua:
-		esta_en_agua = false
+	esta_en_agua = false
+	var posicion_pies = global_position + Vector2(0, 10)
+	
+	# 1. Buscamos las capas
+	var capas = get_tree().get_nodes_in_group("capas_agua")
+	
+	# DEBUG: Si esto imprime 0, es que olvidaste añadir el grupo a la capa en la escena de la sala
+	if capas.size() == 0:
+		print("ERROR: No encontré ninguna capa en el grupo 'capas_agua'")
+	
+	for capa in capas:
+		var local_pos = capa.to_local(posicion_pies)
+		var map_pos = capa.local_to_map(local_pos)
+		var data = capa.get_cell_tile_data(map_pos)
+		
+		if data:
+			# DEBUG: Esto nos dirá qué está leyendo Molten bajo sus pies
+			var valor_tipo = data.get_custom_data("tipo")
+			
+			if valor_tipo == "agua":
+				esta_en_agua = true
+				return
+				
+func recibir_daño(cantidad):
+	# Si Molten ya no está en el juego, no hacemos nada
+	if not is_inside_tree():
 		return
 
-	var posicion_pies = global_position + Vector2(0, 10)
-	var local_pos = capa_agua.to_local(posicion_pies)
-	var map_pos = capa_agua.local_to_map(local_pos)
-	
-	var data = capa_agua.get_cell_tile_data(map_pos)
-	
-	if data:
-		var tipo = data.get_custom_data("tipo")
-		if tipo == "agua":
-			esta_en_agua = true
-		else:
-			esta_en_agua = false
-	else:
-		esta_en_agua = false
-
-func recibir_daño(cantidad):
 	salud_actual -= cantidad
 	salud_actual = clamp(salud_actual, 0, salud_maxima)
 	emit_signal("salud_cambiada", salud_actual)
 	
-	modulate = Color.RED
-	await get_tree().create_timer(0.1).timeout
-	modulate = Color.WHITE
-	
+	# Si murió, cambiamos de escena y SALIMOS de la función inmediatamente
 	if salud_actual <= 0:
 		morir()
+		return # <-- Este return evita que el código de abajo explote
+		
+	# Si sigue vivo, lo hacemos parpadear (pero solo 1 vez cada 0.1 segundos)
+	if not esta_parpadeando:
+		esta_parpadeando = true
+		modulate = Color.RED
+		
+		# Esperamos 0.1 segundos
+		await get_tree().create_timer(0.1).timeout
+		
+		# Verificamos que Molten siga existiendo antes de despintarlo
+		if is_inside_tree():
+			modulate = Color.WHITE
+			esta_parpadeando = false
 
 func morir():
 	set_physics_process(false)
 	var nivel_donde_estoy = get_tree().current_scene.scene_file_path
 	GameManager.jugador_murio(nivel_donde_estoy)
-
 
 func obtener_llave():
 	llaves += 1

@@ -34,6 +34,7 @@ mouse_cursor/custom_image="uid://bd0hyrirpog62"
 
 jugador=""
 puntos_spawn=""
+capas_agua=""
 
 [input]
 

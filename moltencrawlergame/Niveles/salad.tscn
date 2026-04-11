@@ -66,7 +66,7 @@ texture_region_size = Vector2i(256, 256)
 
 [sub_resource type="TileSet" id="TileSet_6jce0"]
 tile_size = Vector2i(256, 256)
-navigation_layer_0/layers = 1
+navigation_layer_0/layers = 30465
 custom_data_layer_0/name = "tipo"
 custom_data_layer_0/type = 4
 sources/7 = SubResource("TileSetAtlasSource_k3unr")
@@ -83,16 +83,13 @@ scale = Vector2(0.5, 0.5)
 [node name="TileMapLayer" type="TileMapLayer" parent="NavigationRegion2D"]
 position = Vector2(-104, -136)
 scale = Vector2(2, 2)
+tile_map_data = PackedByteArray("AAAAAAIAAQABAAAAAAAAAP7/AQABAAAAAAD+/wAAAQABAAAAAAACAAAAAQABAAAAAAD///7/AQABAAAAAAABAP7/AQABAAAAAAACAP//AQABAAAAAAACAAEAAQABAAAAAAACAAIAAQABAAAAAAD+/wIAAQABAAAAAAD//wIAAQABAAAAAAABAAIAAQABAAAAAAD+/wEAAQABAAAAAAAAAAAAAQABAAAAAAD//wAAAQABAAAAAAABAAAAAQABAAAAAAD+////AQABAAAAAAD+//7/AQABAAAAAAACAP7/AQABAAAAAAA=")
 tile_set = SubResource("TileSet_q6r6c")
 
 [node name="TileMapLayer2" type="TileMapLayer" parent="NavigationRegion2D"]
 position = Vector2(-104, -136)
-tile_map_data = PackedByteArray("AAAAAAAABwABAAEAAAAAAP//BwAAAAEAAFAAAAEABwAAAAEAAGD//wAABwAAAAEAAAABAAAABwAAAAEAADACAAAABwAAAAAAAAD+/wAABwAAAAAAAAAAAP7/BwAAAAAAAAAAAAIABwAAAAAAAAA=")
 tile_set = SubResource("TileSet_6jce0")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 visible = false
 color = Color(0.0643933, 0.000962321, 0.0372444, 1)
-
-[node name="Marker2D" type="Marker2D" parent="." groups=["puntos_spawn"]]
-position = Vector2(64, 64)

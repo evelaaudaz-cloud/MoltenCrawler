@@ -86,12 +86,11 @@ scale = Vector2(2, 2)
 tile_map_data = PackedByteArray("AAD//wAAAQABAAAAAAAAAAAAAQABAAAAAAAAAP//AQABAAAAAAABAAAAAQABAAAAAAAAAAEAAQABAAAAAAAAAP7/AQABAAAAAAACAAAAAQABAAAAAAD+/wAAAQABAAAAAAAAAAIAAQABAAAAAAA=")
 tile_set = SubResource("TileSet_q6r6c")
 
-[node name="TileMapLayer2" type="TileMapLayer" parent="NavigationRegion2D"]
+[node name="TileMapLayer2" type="TileMapLayer" parent="NavigationRegion2D" groups=["capas_agua"]]
 position = Vector2(-104, -136)
 tile_set = SubResource("TileSet_6jce0")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-visible = false
 color = Color(0.0643933, 0.000962321, 0.0372444, 1)
 
 [node name="Marker2D" type="Marker2D" parent="." groups=["puntos_spawn"]]
